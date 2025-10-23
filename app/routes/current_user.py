@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from app.db.model import Player
 from app.db.schemas import USERME
 from sqlalchemy.sql import select
-from fastapi import Depends,APIRouter
+from fastapi import Depends,APIRouter,HTTPException
 from app.db.db_conn import asyncSession
 from fastapi.security import OAuth2PasswordBearer
 from app.internal.error import UserIdNotFound, UserNotFound, ExpireToken
@@ -27,9 +27,7 @@ async def verify_token(token: str):
                 )
                 user = result.scalar_one_or_none()
             if user:
-                
-                return { "id": user.id,
-                        "email": user.email}
+                return user 
             else:
                 raise UserNotFound
         else:
@@ -53,14 +51,36 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     except Exception as e:
         raise ExpireToken
     
+
+#get current admin user: 
+async def get_current_admin_user(token: str = Depends(oauth2_scheme)):
+    try: 
+        user = await verify_token(token)
+        if user.role.value == "admin":
+            return user 
+        else:
+            raise HTTPException(status_code=403, detail="You are not an admin user.")
+    except Exception as e:
+        raise HTTPException(status_code=401, detail="Invalid token or you are not an admin user.")
+    
+
 #<----------------------Router End Point------------------------------->
 router = APIRouter(tags=["Current User"])
 @router.post("/user/me",response_model=USERME)
 async def currentUser(user = Depends(get_current_user)):
     #print(user)
     user = USERME(
-        email = user["email"],
-        id= user["id"]
+        email = user.email,
+        id= user.id
+    )
+    return user 
+
+@router.post("/user/admin/me",response_model=USERME)
+async def currentUser(user = Depends(get_current_admin_user)):
+    #print(user)
+    user = USERME(
+        email = user.email,
+        id= user.id
     )
     return user 
 

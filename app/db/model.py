@@ -89,15 +89,14 @@ class Tournament(Base):
     auction_players = relationship("AuctionPlayer", back_populates="tournaments",cascade="all, delete-orphan")
 
 
-
 class Team(Base):
     __tablename__ = 'teams'
     
     id = Column(Integer,index=True, primary_key=True)
     tournament_id = Column(Integer, ForeignKey('tournaments.id'))
     team_name = Column(String(100), nullable=False)
-    team_code = Column(String(10))
-    logo_url = Column(String(255))
+    team_code = Column(String(10),default=None)
+    logo_url = Column(String(255),default=None)
     created_at = Column(DateTime, default=func.now())
     
     # relationship:)
@@ -106,7 +105,7 @@ class Team(Base):
     team1 = relationship("Match",foreign_keys="Match.team1_id", back_populates="team1",cascade="all, delete-orphan")
     team2 = relationship("Match",foreign_keys="Match.team2_id", back_populates="team2",cascade="all, delete-orphan")
     tournaments = relationship("Tournament",back_populates="teams")
-
+ 
 
 class Match(Base):
     __tablename__ = 'matches'
@@ -115,7 +114,7 @@ class Match(Base):
     team1_id = Column(Integer, ForeignKey('teams.id'))
     team2_id = Column(Integer, ForeignKey('teams.id'))
     match_date = Column(DateTime)
-    venue = Column(String(100))
+    venue = Column(String(100),default=None)
     created_at = Column(DateTime, default=func.now())
     
     # relationship:)
