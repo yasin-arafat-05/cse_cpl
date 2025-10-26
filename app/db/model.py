@@ -95,7 +95,7 @@ class Team(Base):
     id = Column(Integer,index=True, primary_key=True)
     tournament_id = Column(Integer, ForeignKey('tournaments.id'))
     team_name = Column(String(100), nullable=False)
-    team_code = Column(String(10),default=None)
+    team_code = Column(String(100),default=None)
     logo_url = Column(String(255),default=None)
     created_at = Column(DateTime, default=func.now())
     
@@ -146,7 +146,7 @@ class AuctionPlayer(Base):
     start_players = Column(Boolean,default=False)
     base_price = Column(Float(12, 2), default=20.00)
     sold_price = Column(Float(12, 2), default=0.00)
-    sold_to_team_id = Column(Integer, ForeignKey('teams.id'))
+    sold_to_team_id = Column(Integer, ForeignKey('teams.id'),nullable=True)
 
     #relationship:) 
     players = relationship("Player",back_populates="auction_players")

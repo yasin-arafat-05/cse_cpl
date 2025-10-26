@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.lifespan import lifespan
 from app.middleware import register_middleware
 from app.routes import login,signup,current_user,admin
-from app.internal.error import register_all_errors
+from app.db.internal.error import register_all_errors
 
 
 version = "v1"

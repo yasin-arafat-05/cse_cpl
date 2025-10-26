@@ -141,19 +141,11 @@ async def get_teams_by_tournament(tournament_id: int, current_admin: model.Playe
         ]
 
 
-
-
-
 #3. =================================== AUCTION MANAGEMENT ======================================
+# """Select players for auction in a tournament"""
 @router.post("/auction/select-players", status_code=status.HTTP_201_CREATED)
-async def select_players_for_auction(
-    tournament_id: int,
-    player_ids: List[int],
-    current_admin: model.Player = Depends(get_current_admin_user)
-):
-    """Select players for auction in a tournament"""
+async def select_players_for_auction(tournament_id: int,player_ids: List[int],current_admin: model.Player = Depends(get_current_admin_user)):
     async with asyncSession() as sess:
-        # Check if tournament exists
         tournament_result = await sess.execute(
             select(model.Tournament).filter(model.Tournament.id == tournament_id)
         )
@@ -169,9 +161,9 @@ async def select_players_for_auction(
         players = players_result.scalars().all()
         
         if len(players) != len(player_ids):
-            raise HTTPException(status_code=400, detail="Some players not found")
+            raise HTTPException(status_code=400, detail="No players is not found")
         
-        # Create auction players (initially not sold to any team)
+        # Create auction players:
         auction_players = []
         for player_id in player_ids:
             auction_player = model.AuctionPlayer(
@@ -187,6 +179,8 @@ async def select_players_for_auction(
         
         return {"message": f"Selected {len(player_ids)} players for auction"}
 
+
+
 #2. Get all auction players for a tournament:
 @router.get("/auction/tournaments/{tournament_id}/players", response_model=List[schemas.AuctionPlayerResponse])
 async def get_auction_players(tournament_id: int,current_admin: model.Player = Depends(get_current_admin_user)):
@@ -201,24 +195,25 @@ async def get_auction_players(tournament_id: int,current_admin: model.Player = D
         return [
             schemas.AuctionPlayerResponse(
                 id=ap.id,
-                player_id=ap.player_id,
-                tournament_id=ap.tournament_id,
-                start_players=ap.start_players,
-                base_price=ap.base_price,
-                sold_price=ap.sold_price,
-                sold_to_team_id=ap.sold_to_team_id,
-                player_name=p.name,
+                player_id=ap.player_id if ap else None,
+                tournament_id=ap.tournament_id if ap else None,
+                start_players=ap.start_players if ap else None,
+                base_price=ap.base_price if ap else None,
+                sold_price=ap.sold_price if ap else None,
+                sold_to_team_id=ap.sold_to_team_id if ap else None,
+                player_name=p.name if p else None,
                 team_name=t.team_name if t else None
             ) for ap, p, t in auction_data
         ]
 
+
+
+
+
+#  """Assign a player to a team during auction"""
 @router.put("/auction/assign-player/{auction_player_id}")
-async def assign_player_to_team(
-    auction_player_id: int,
-    auction_update: schemas.AuctionPlayerUpdate,
-    current_admin: model.Player = Depends(get_current_admin_user)
-):
-    """Assign a player to a team during auction"""
+async def assign_player_to_team(auction_player_id: int,auction_update: schemas.AuctionPlayerUpdate,current_admin: model.Player = Depends(get_current_admin_user)):
+   
     async with asyncSession() as sess:
         # Get auction player
         result = await sess.execute(

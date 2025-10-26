@@ -72,8 +72,6 @@ class TeamResponse(BaseModel):
     tournament_id: int
     team_name: str
     team_code: str
-    logo_url: str
-    created_at: str
 
 class AuctionPlayerCreate(BaseModel):
     player_id: int
@@ -88,11 +86,11 @@ class AuctionPlayerResponse(BaseModel):
     id: int
     player_id: int
     tournament_id: int
-    start_players: bool
-    base_price: float
-    sold_price: float
-    sold_to_team_id: int
-    player_name: str
+    start_players: bool = None 
+    base_price: float = None 
+    sold_price: float  = None 
+    sold_to_team_id: int = None 
+    player_name: str 
     team_name: str = None
 
 class MatchCreate(BaseModel):

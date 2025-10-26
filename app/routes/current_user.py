@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 from app.db.model import Player
 from app.db.schemas import USERME
 from sqlalchemy.sql import select
-from fastapi import Depends,APIRouter,HTTPException
 from app.db.db_conn import asyncSession
 from fastapi.security import OAuth2PasswordBearer
-from app.internal.error import UserIdNotFound, UserNotFound, ExpireToken
+from fastapi import Depends,APIRouter,HTTPException
+from app.db.internal.error import UserIdNotFound, UserNotFound, ExpireToken
 
 
 SECRET = CONFIG.SECRET_KEY
