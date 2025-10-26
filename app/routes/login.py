@@ -5,7 +5,7 @@ from app.db import schemas,model
 from sqlalchemy.sql import select
 from app.db.db_conn import asyncSession
 from datetime import timedelta,datetime,timezone
-from app.db.internal.passHassing import verify_password
+from app.internal.passHassing import verify_password
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi import APIRouter,Depends,HTTPException,status
 

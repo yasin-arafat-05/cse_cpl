@@ -143,7 +143,7 @@ class AuctionPlayer(Base):
     id = Column(Integer,index=True, primary_key=True)
     player_id = Column(Integer, ForeignKey('players.id'), nullable=False)
     tournament_id = Column(Integer, ForeignKey('tournaments.id'), nullable=False)
-    start_players = Column(Boolean,default=False)
+    start_players = Column(String(2),default='Z')
     base_price = Column(Float(12, 2), default=20.00)
     sold_price = Column(Float(12, 2), default=0.00)
     sold_to_team_id = Column(Integer, ForeignKey('teams.id'),nullable=True)

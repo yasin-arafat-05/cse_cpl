@@ -3,11 +3,11 @@ from sqlalchemy.sql import select
 from app.db.schemas import CreateUser
 from app.db.db_conn import asyncSession
 from fastapi.background import BackgroundTasks
-from app.db.internal.error import MailExistError
+from app.internal.error import MailExistError
 from fastapi import status,APIRouter,HTTPException
 from app.routes.send_mail import send_mail_endpoint
-from app.db.internal.passHassing import get_password_hash
-from app.db.internal.html_template import pstu_cse_event_account_created
+from app.internal.passHassing import get_password_hash
+from app.internal.html_template import pstu_cse_event_account_created
 
 router = APIRouter(tags=['Sign-up'])
 

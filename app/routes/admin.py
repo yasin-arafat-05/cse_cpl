@@ -7,139 +7,8 @@ from app.db.db_conn import asyncSession
 from app.db import model, schemas
 from app.routes.current_user import get_current_admin_user
 
+
 router = APIRouter(tags=['Admin'])
-
-
-
-#1.==================================== TOURNAMENT MANAGEMENT =======================================
-## 1. Create a new tournament:
-@router.post("/tournaments/create", response_model=schemas.TournamentResponse, status_code=status.HTTP_201_CREATED)
-async def create_tournament(tournament: schemas.TournamentCreate,current_admin: model.Player = Depends(get_current_admin_user)):
-    async with asyncSession() as sess:
-        # Convert string dates to date objects
-        start_date = datetime.fromisoformat(tournament.start_date).date()
-        end_date = datetime.fromisoformat(tournament.end_date).date()
-        
-        new_tournament = model.Tournament(
-            name=tournament.name,
-            year=tournament.year,
-            start_date=start_date,
-            end_date=end_date,
-            status='upcoming'
-        )
-        
-        sess.add(new_tournament)
-        await sess.commit()
-        await sess.refresh(new_tournament)
-        
-        return schemas.TournamentResponse(
-            id=new_tournament.id,
-            name=new_tournament.name,
-            year=new_tournament.year,
-            status=new_tournament.status,
-            start_date=str(new_tournament.start_date),
-            end_date=str(new_tournament.end_date),
-            created_at=str(new_tournament.created_at)
-        )
-        
-
-# 2. Get all tournaments:
-@router.get("/tournaments/fetch", response_model=List[schemas.TournamentResponse])
-async def get_tournaments(current_admin: model.Player = Depends(get_current_admin_user)):
-    """Get all tournaments"""
-    async with asyncSession() as sess:
-        result = await sess.execute(select(model.Tournament).order_by(model.Tournament.created_at.desc()))
-        tournaments = result.scalars().all()
-        
-        return [
-            schemas.TournamentResponse(
-                id=t.id,
-                name=t.name,
-                year=t.year,
-                status=t.status,
-                start_date=str(t.start_date) if t.start_date else "",
-                end_date=str(t.end_date) if t.end_date else "",
-                created_at=str(t.created_at)
-            ) for t in tournaments
-        ]
-
-# 3. Update Tournaments Status to -> upcoming, active, completed
-@router.put("/tournaments/{tournament_id}/status")
-async def update_tournament_status(tournament_id: int,new_status: str,current_admin: model.Player = Depends(get_current_admin_user)):
-    if new_status not in ['upcoming', 'active', 'completed']:
-        raise HTTPException(status_code=400, detail="Invalid status. Must be: upcoming, active, or completed")
-    
-    async with asyncSession() as sess:
-        result = await sess.execute(select(model.Tournament).filter(model.Tournament.id == tournament_id))
-        tournament = result.scalar_one_or_none()
-        if not tournament:
-            raise HTTPException(status_code=404, detail="Tournament not found")
-        tournament.status = new_status
-        await sess.commit()
-        return {"message": f"Tournament status updated to {new_status}"}
-    
-    
-
-#2.=============================== TEAM MANAGEMENT ==============================================
-#1. Create a new team under a tournament
-@router.post("/teams", response_model=schemas.TeamResponse, status_code=status.HTTP_201_CREATED)
-async def create_team(team: schemas.TeamCreate,current_admin: model.Player = Depends(get_current_admin_user)):
-    async with asyncSession() as sess:
-        tournament_result = await sess.execute(
-            select(model.Tournament).filter(model.Tournament.id == team.tournament_id)
-        )
-        tournament = tournament_result.scalar_one_or_none()
-        
-        if not tournament:
-            raise HTTPException(status_code=404, detail="Tournament not found")
-        
-        # Check if team code already exists in this tournament
-        existing_team = await sess.execute(
-            select(model.Team).filter(
-                and_(
-                    model.Team.tournament_id == team.tournament_id,
-                    model.Team.team_code == team.team_code
-                )
-            )
-        )
-        if existing_team.scalar_one_or_none():
-            raise HTTPException(status_code=400, detail="Team code already exists in this tournament")
-        
-        new_team = model.Team(
-            tournament_id=team.tournament_id,
-            team_name=team.team_name,
-            team_code=team.team_code
-        )
-        
-        sess.add(new_team)
-        await sess.commit()
-        await sess.refresh(new_team)
-        
-        return schemas.TeamResponse(
-            id=new_team.id,
-            tournament_id=new_team.tournament_id,
-            team_name=new_team.team_name,
-            team_code=new_team.team_code
-        )
-
-#2. Get all teams for a specific tournament: 
-@router.get("/tournaments/{tournament_id}/teams", response_model=List[schemas.TeamResponse])
-async def get_teams_by_tournament(tournament_id: int, current_admin: model.Player = Depends(get_current_admin_user)):
-    async with asyncSession() as sess:
-        result = await sess.execute(
-            select(model.Team).filter(model.Team.tournament_id == tournament_id))
-        teams = result.scalars().all()
-        return [
-            schemas.TeamResponse(
-                id=t.id,
-                tournament_id=t.tournament_id,
-                team_name=t.team_name,
-                team_code=t.team_code,
-                logo_url=t.logo_url,
-                created_at=str(t.created_at)
-            ) for t in teams
-        ]
-
 
 #3. =================================== AUCTION MANAGEMENT ======================================
 # """Select players for auction in a tournament"""
@@ -181,7 +50,7 @@ async def select_players_for_auction(tournament_id: int,player_ids: List[int],cu
 
 
 
-#2. Get all auction players for a tournament:
+#2. Get all auction players for a particular tournament:
 @router.get("/auction/tournaments/{tournament_id}/players", response_model=List[schemas.AuctionPlayerResponse])
 async def get_auction_players(tournament_id: int,current_admin: model.Player = Depends(get_current_admin_user)):
     async with asyncSession() as sess:
@@ -207,15 +76,13 @@ async def get_auction_players(tournament_id: int,current_admin: model.Player = D
         ]
 
 
-
-
-
-#  """Assign a player to a team during auction"""
-@router.put("/auction/assign-player/{auction_player_id}")
-async def assign_player_to_team(auction_player_id: int,auction_update: schemas.AuctionPlayerUpdate,current_admin: model.Player = Depends(get_current_admin_user)):
+#3. Ready player for auction/ update:
+@router.put("/auction/prepared-player/{auction_player_id}")
+async def prepared_player_for_auction(auction_player_id: int,auction_update: schemas.AuctionPlayerBioUpdate,current_admin: model.Player = Depends(get_current_admin_user)):
    
     async with asyncSession() as sess:
-        # Get auction player
+        
+        # ==== 1. find the player id: =====
         result = await sess.execute(
             select(model.AuctionPlayer).filter(model.AuctionPlayer.id == auction_player_id)
         )
@@ -224,7 +91,29 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
         if not auction_player:
             raise HTTPException(status_code=404, detail="Auction player not found")
         
-        # Check if team exists and belongs to the same tournament
+        # Update auction player
+        auction_player.start_players = auction_update.start_players
+        auction_player.base_price = auction_update.base_price
+        await sess.commit()
+        return {"message": "Player information update successfully"}
+
+
+
+
+#4. Assign a player to a team during auction/ update a auction player information:
+@router.put("/auction/assign-player/{auction_player_id}")
+async def assign_player_to_team(auction_player_id: int,auction_update: schemas.AuctionPlayerUpdate,current_admin: model.Player = Depends(get_current_admin_user)):
+   
+    async with asyncSession() as sess:
+        # ==== 1. find the player id: =====
+        result = await sess.execute(
+            select(model.AuctionPlayer).filter(model.AuctionPlayer.id == auction_player_id)
+        )
+        auction_player = result.scalar_one_or_none()
+        
+        if not auction_player:
+            raise HTTPException(status_code=404, detail="Auction player not found")
+        # === 2. Check under the tonament the team is present or not ==== 
         team_result = await sess.execute(
             select(model.Team).filter(
                 and_(
@@ -234,10 +123,11 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
             )
         )
         team = team_result.scalar_one_or_none()
-        
         if not team:
             raise HTTPException(status_code=404, detail="Team not found or doesn't belong to this tournament")
-        # Check team player limit (30 players max)
+       
+       
+        # ====  3. Check team player limit (40 players max): =====
         current_players_count = await sess.execute(
             select(func.count(model.AuctionPlayer.id))
             .filter(
@@ -249,16 +139,21 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
             )
         )
         count = current_players_count.scalar()
-        if count >= 30:
+        if count >= 40:
             raise HTTPException(status_code=400, detail="Team already has maximum 30 players")
+        
+        
         # Update auction player
         auction_player.sold_to_team_id = auction_update.sold_to_team_id
         auction_player.sold_price = auction_update.sold_price
-        
         await sess.commit()
-        
-        return {"message": "Player assigned to team successfully"}
+        return {"message": "Player assigned to team successfully or player update successfully"}
 
+
+
+
+
+# === 5. Get the a perticular team with all the team - member: ===
 @router.get("/teams/{team_id}/player-count", response_model=schemas.TeamPlayerCount)
 async def get_team_player_count(
     team_id: int,

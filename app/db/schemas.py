@@ -1,5 +1,5 @@
 import enum 
-from typing import Annotated
+from typing import Annotated,Optional
 from datetime import datetime,timezone
 from pydantic import BaseModel,EmailStr,Field
 from pydantic import field_validator
@@ -21,10 +21,6 @@ class CreateUser(BaseModel):
     @field_validator('category',mode="after")
     @classmethod
     def validator(cls,value):
-        # print(value)
-        # print(type(value))
-        # print(PlayerCategory.batter)
-        # print(type(PlayerCategory.batter))
         if value not in ["batter","bowler","all_rounder","wicket_keeper"]:
             raise ValueError("category field value is not correct")
         return value 
@@ -78,20 +74,35 @@ class AuctionPlayerCreate(BaseModel):
     tournament_id: int
     base_price: float = 20.00
 
+
+class AuctionPlayerBioUpdate(BaseModel):
+    base_price : int = 20 
+    start_players : str 
+    @field_validator('start_players',mode='after')
+    @classmethod
+    def validator(cls,value):
+        if len(value)>1:
+            raise ValueError("Category must be,in one character like, 'A','B','C'")
+        return value 
+    
+    
+
 class AuctionPlayerUpdate(BaseModel):
-    sold_price: float
-    sold_to_team_id: int
+    sold_price: Optional[float] = None 
+    sold_to_team_id: Optional[int] = None 
+
+    
 
 class AuctionPlayerResponse(BaseModel):
     id: int
     player_id: int
     tournament_id: int
-    start_players: bool = None 
-    base_price: float = None 
-    sold_price: float  = None 
-    sold_to_team_id: int = None 
+    start_players: Optional[str] = None 
+    base_price: Optional[float] = None 
+    sold_price: Optional[float] = None 
+    sold_to_team_id: Optional[int] = None 
     player_name: str 
-    team_name: str = None
+    team_name: Optional[str] = None
 
 class MatchCreate(BaseModel):
     tournament_id: int
