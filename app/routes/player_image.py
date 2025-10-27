@@ -1,4 +1,9 @@
-
+""" 
+This will effect our cpu a lot: To solve this. 
+- 
+- pip install rembg[server]
+-
+"""
 import io
 import secrets 
 from PIL import Image
@@ -6,6 +11,7 @@ from rembg import remove
 from app.db import model
 from app.db import schemas
 from sqlalchemy.sql import select
+from fastapi import BackgroundTasks
 from app.db.db_conn import asyncSession
 from fastapi import HTTPException,status
 from fastapi.responses import FileResponse
@@ -22,9 +28,32 @@ Mount is going to tell the fastapi that in this directory will save static files
 '''
 router.mount("/photo", StaticFiles(directory="app/photo"), name="photo")
 
+def background_processing(file_content, output_path):
+    input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
 
+    # 1: Remove background using lightweight model
+    no_bg = remove(input_image, model_name="u2netp")
+
+    # 2: Load and resize custom background
+    bg_path = "app/photo/backgrounds/Background.jpg"
+    background = Image.open(bg_path).convert("RGBA").resize(no_bg.size)
+
+    # 3: Paste the no-bg image on background
+    position = (250, 250)
+    background.paste(no_bg, position, no_bg)
+
+    # 4: Save final image
+    final_img = background.resize((1000, 1024))
+    final_img.save(output_path, format="PNG")
+
+
+""" 
+rembg use deep learning model.
+It's a very heavy and cpu bound task.
+Use lighiter model like, u2netp.
+"""
 @router.post("/upload/player/profile")
-async def create_upload_file(file: UploadFile = File(...),user = Depends(get_current_user)):
+async def create_upload_file(file: UploadFile = File(...),user = Depends(get_current_user),bgtask:BackgroundTasks):
     PATH = "app/photo/player"
     filename = file.filename
     ext = filename.split('.')[-1].lower()
@@ -35,23 +64,7 @@ async def create_upload_file(file: UploadFile = File(...),user = Depends(get_cur
 
     # user input image:
     file_content = await file.read()
-    input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
-
-    # 1: Remove Background
-    no_bg = remove(input_image)
-
-    # 2: Load YOUR custom background image
-    bg_path = "app/photo/backgrounds/Background.jpg"
-    background = Image.open(bg_path).convert("RGBA").resize(no_bg.size)
-
-    # 3: Merge custom image with our background
-    position = (150,150)
-    background.paste(no_bg, position, no_bg)
-
-
-    #4.: Resize and save
-    final_img = background.resize((1000, 1024))
-    final_img.save(output_path, format="PNG")
+    bgtask.add_task(background_processing,file_content,output_path)
 
     #5. Update Database
     async with asyncSession() as sess:
@@ -66,6 +79,7 @@ async def create_upload_file(file: UploadFile = File(...),user = Depends(get_cur
         await sess.commit()
     await file.close()
     return {"status": "success", "filename": token_name}
+
 
 
 
