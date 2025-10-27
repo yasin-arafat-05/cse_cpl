@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Auction</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #auction-players {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .player-card {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 250px;
+            transition: background-color 0.4s ease;
+        }
+
+        .player-card span { 
+            font-weight: bold; 
+        }
+
+        .updated {
+            background-color: #d4edda !important; /* light green */
+        }
+    </style>
+</head>
+<body>
+    <h1>🏏 Live Auction Dashboard</h1>
+
+    <div id="auction-players">
+        {% for player in players %}
+            <div class="player-card" id="player-{{ player.id }}">
+                Player: <span>{{ player.players.name if player.players else "N/A" }}</span><br>
+                Team: <span>{{ player.teams.team_name if player.teams else "Not assigned" }}</span><br>
+                Sold Price: <span>{{ player.sold_price }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // ✅ Connect to WebSocket
+        const ws = new WebSocket(`ws://localhost:8000/api/v1/ws/auction/live`);
+
+        ws.onopen = () => {
+            console.log("Connected to live auction websocket");
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log("Received:", data);
+
+            if (data.type === "player_assigned") {
+                updatePlayerCard(data);
+            }
+        };
+
+        ws.onclose = () => {
+            console.log("Disconnected from live auction websocket");
+        };
+
+        // ✅ Function to update UI dynamically
+        function updatePlayerCard(data) {
+            const playerCard = document.getElementById(`player-${data.player_id}`);
+            
+            if (playerCard) {
+                // Update team name and price
+                const spans = playerCard.getElementsByTagName('span');
+                spans[1].textContent = data.team_name; // Team name
+                spans[2].textContent = data.sold_price; // Sold price
+                
+                // Highlight update
+                playerCard.classList.add("updated");
+                setTimeout(() => playerCard.classList.remove("updated"), 1000);
+            } else {
+                // Create new player card if not found
+                const newCard = document.createElement('div');
+                newCard.className = "player-card updated";
+                newCard.id = `player-${data.player_id}`;
+                newCard.innerHTML = `
+                    Player: <span>${data.player_name}</span><br>
+                    Team: <span>${data.team_name}</span><br>
+                    Sold Price: <span>${data.sold_price}</span>
+                `;
+                document.getElementById("auction-players").appendChild(newCard);
+                setTimeout(() => newCard.classList.remove("updated"), 1000);
+            }
+        }
+    </script>
+</body>
+</html> -->

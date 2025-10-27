@@ -2,6 +2,7 @@
 from typing import List
 from app.db import model, schemas
 from app.db.db_conn import asyncSession
+from sqlalchemy.orm import selectinload
 from sqlalchemy import select, func, and_
 from app.routes.current_user import get_current_admin_user
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -11,7 +12,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 router = APIRouter(tags=['Admin-Team-Management'])
 
 
-#2.=============================== TEAM MANAGEMENT ==============================================
+# =============================== TEAM MANAGEMENT ==============================================
 #1. Create a new team under a tournament
 @router.post("/teams", response_model=schemas.TeamResponse, status_code=status.HTTP_201_CREATED)
 async def create_team(team: schemas.TeamCreate,current_admin: model.Player = Depends(get_current_admin_user)):
@@ -53,22 +54,50 @@ async def create_team(team: schemas.TeamCreate,current_admin: model.Player = Dep
             team_code=new_team.team_code
         )
 
-#2. Get all teams for a specific tournament: 
-@router.get("/tournaments/{tournament_id}/teams", response_model=List[schemas.TeamResponse])
-async def get_teams_by_tournament(tournament_id: int, current_admin: model.Player = Depends(get_current_admin_user)):
+
+# 2. =====================<>=================<>===================<>===============<>=============
+@router.get("/tournaments/{tournament_id}/teams", response_model=List[schemas.TeamWithPlayersResponse])
+async def get_teams_with_players(tournament_id: int):
     async with asyncSession() as sess:
+        # Fetch teams for this tournament
         result = await sess.execute(
-            select(model.Team).filter(model.Team.tournament_id == tournament_id))
+            select(model.Team).filter(model.Team.tournament_id == tournament_id)
+        )
         teams = result.scalars().all()
-        return [
-            schemas.TeamResponse(
-                id=t.id,
-                tournament_id=t.tournament_id,
-                team_name=t.team_name,
-                team_code=t.team_code,
-                logo_url=t.logo_url,
-                created_at=str(t.created_at)
-            ) for t in teams
-        ]
+
+        if not teams:
+            raise HTTPException(status_code=404, detail="No teams found for this tournament")
+
+        response = []
+        for team in teams:
+            # Fetch auction players for this team
+            ap_result = await sess.execute(
+                select(model.AuctionPlayer)
+                .options(selectinload(model.AuctionPlayer.players))
+                .filter(model.AuctionPlayer.tournament_id == tournament_id)
+                .filter(model.AuctionPlayer.sold_to_team_id == team.id)
+            )
+            auction_players = ap_result.scalars().all()
+
+            # Prepare player data
+            players = [
+                schemas.PlayerResponse(
+                    id=ap.player_id,
+                    name=ap.players.name,
+                    email=ap.players.email,
+                    category=ap.players.category.value,
+                    photo_url=ap.players.photo_url
+                )
+                for ap in auction_players
+            ]
+
+            team_data = schemas.TeamWithPlayersResponse(
+                id=team.id,
+                team_name=team.team_name,
+                team_code=team.team_code,
+                players=players
+            )
+            response.append(team_data)
+    return response
 
 

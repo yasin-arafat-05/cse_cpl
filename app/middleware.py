@@ -3,7 +3,7 @@ import time
 import logging
 from fastapi import FastAPI
 from fastapi import Request
-
+from fastapi.middleware.cors import CORSMiddleware
 
 # desiable fast api resonses:
 logger = logging.getLogger("uvicorn.access")
@@ -21,5 +21,12 @@ def register_middleware(app:FastAPI):
         print(log_messages)
         return response
     
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
     
     

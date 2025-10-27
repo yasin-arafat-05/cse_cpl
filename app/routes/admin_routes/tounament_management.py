@@ -46,7 +46,7 @@ async def create_tournament(tournament: schemas.TournamentCreate,current_admin: 
 
 # 2. Get all tournaments:
 @router.get("/tournaments/fetch", response_model=List[schemas.TournamentResponse])
-async def get_tournaments(current_admin: model.Player = Depends(get_current_admin_user)):
+async def get_tournaments():
     """Get all tournaments"""
     async with asyncSession() as sess:
         result = await sess.execute(select(model.Tournament).order_by(model.Tournament.created_at.desc()))
@@ -79,5 +79,4 @@ async def update_tournament_status(tournament_id: int,new_status: str,current_ad
         tournament.status = new_status
         await sess.commit()
         return {"message": f"Tournament status updated to {new_status}"}
-    
     

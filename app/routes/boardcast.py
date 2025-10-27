@@ -1,5 +1,9 @@
 
-
+#""" 
+# This is Boardcast:
+# Not Multicast:
+# Only 1 auction can be live in the 
+#"""
 import json
 from app.db import model
 from sqlalchemy.sql import select
@@ -83,10 +87,11 @@ async def stop_live_auction(
         "type": "auction_ended",
         "message": "Auction has ended"
     })
-    
     auction_state.stop_live()
     return {"message": "Auction stopped"}
     
+
+# For Controlling the Live Button Brother.
 @router.get("/auction/status")
 async def get_auction_status():
     status =  {
@@ -94,6 +99,7 @@ async def get_auction_status():
         "active_tournament": auction_state.active_tournament
     }
     return status
+    
     
     
 

@@ -1,6 +1,6 @@
 import enum 
-from typing import Annotated,Optional
 from datetime import datetime,timezone
+from typing import Annotated,Optional,List
 from pydantic import BaseModel,EmailStr,Field
 from pydantic import field_validator
 
@@ -140,5 +140,21 @@ class TeamPlayerCount(BaseModel):
     team_name: str
     player_count: int
     max_players: int = 30
+    
+    
+    
+    
+class PlayerResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+    category: str
+    photo_url: str | None
+
+class TeamWithPlayersResponse(BaseModel):
+    id: int
+    team_name: str
+    team_code: str | None
+    players: List[PlayerResponse]
     
     

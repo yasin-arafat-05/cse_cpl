@@ -455,7 +455,7 @@ async def get_tournament_overview(tournament_id: int,current_admin: model.Player
 
 #2.Get player distribution across teams in a tournament:
 @router.get("/dashboard/teams/{tournament_id}/player-distribution")
-async def get_team_player_distribution(tournament_id: int,current_admin: model.Player = Depends(get_current_admin_user)):
+async def get_team_player_distribution(tournament_id: int):
     async with asyncSession() as sess:
         result = await sess.execute(
             select(
