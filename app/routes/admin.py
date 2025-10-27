@@ -1,12 +1,11 @@
-from datetime import datetime, date
-from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import select, func, and_, or_
-from sqlalchemy.orm import selectinload
-from app.db.db_conn import asyncSession
+from typing import List
+from datetime import datetime
 from app.db import model, schemas
+from app.db.db_conn import asyncSession
+from sqlalchemy import select, func, and_
+from app.routes.boardcast import auction_state
 from app.routes.current_user import get_current_admin_user
-
+from fastapi import APIRouter, Depends, HTTPException, status
 
 router = APIRouter(tags=['Admin'])
 
@@ -113,6 +112,7 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
         
         if not auction_player:
             raise HTTPException(status_code=404, detail="Auction player not found")
+        
         # === 2. Check under the tonament the team is present or not ==== 
         team_result = await sess.execute(
             select(model.Team).filter(
@@ -124,8 +124,7 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
         )
         team = team_result.scalar_one_or_none()
         if not team:
-            raise HTTPException(status_code=404, detail="Team not found or doesn't belong to this tournament")
-       
+            raise HTTPException(status_code=404, detail="Team or plyaer is not found or doesn't belong to this tournament")
        
         # ====  3. Check team player limit (40 players max): =====
         current_players_count = await sess.execute(
@@ -147,6 +146,30 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
         auction_player.sold_to_team_id = auction_update.sold_to_team_id
         auction_player.sold_price = auction_update.sold_price
         await sess.commit()
+        
+         # Get player and team details for broadcasting
+        player_team_result = await sess.execute(
+            select(model.Player, model.Team)
+            .select_from(model.Player)
+            .join(model.Team, model.Team.id == auction_update.sold_to_team_id)
+            .filter(model.Player.id == auction_player.player_id)
+        )
+        player, team = player_team_result.first()
+        
+        # Broadcast ONLY if auction is live
+        if auction_state.is_live:
+            assignment_data = {
+                "type": "player_assigned",
+                "player_id": player.id,
+                "player_name": player.name,
+                "team_id": team.id,
+                "team_name": team.team_name,
+                "sold_price": auction_update.sold_price,
+                "assigned_at": datetime.now().isoformat()
+            }
+            
+            await auction_state.broadcast(assignment_data)
+        
         return {"message": "Player assigned to team successfully or player update successfully"}
 
 

@@ -1,6 +1,7 @@
 
 from fastapi import FastAPI
 from app.lifespan import lifespan
+from app.routes import boardcast
 from app.routes import player_image
 from app.middleware import register_middleware
 from app.routes.admin_routes import all_players
@@ -30,9 +31,8 @@ app.include_router(player_image.router,prefix=f"/api/{version}")
 app.include_router(all_players.router,prefix=f"/api/{version}/admin")
 
 app.include_router(current_user.router,prefix=f"/api/{version}")
-
+app.include_router(boardcast.router,prefix=f"/api/{version}")
 app.include_router(admin.router,prefix=f"/api/{version}/admin")
-
 app.include_router(tounament_management.router,prefix=f"/api/{version}/admin")
 app.include_router(team_management.router,prefix=f"/api/{version}/admin")
 

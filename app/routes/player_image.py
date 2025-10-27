@@ -7,11 +7,11 @@ This will effect our cpu a lot: To solve this.
 import io
 import secrets 
 from PIL import Image
-from rembg import remove
 from app.db import model
 from app.db import schemas
 from sqlalchemy.sql import select
 from fastapi import BackgroundTasks
+from rembg import new_session,remove
 from app.db.db_conn import asyncSession
 from fastapi import HTTPException,status
 from fastapi.responses import FileResponse
@@ -32,7 +32,8 @@ def background_processing(file_content, output_path):
     input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
 
     # 1: Remove background using lightweight model
-    no_bg = remove(input_image, model_name="u2netp")
+    session = new_session(model_name="u2netp")
+    no_bg = remove(data=input_image, session=session)
 
     # 2: Load and resize custom background
     bg_path = "app/photo/backgrounds/Background.jpg"
@@ -53,14 +54,14 @@ It's a very heavy and cpu bound task.
 Use lighiter model like, u2netp.
 """
 @router.post("/upload/player/profile")
-async def create_upload_file(file: UploadFile = File(...),user = Depends(get_current_user),bgtask:BackgroundTasks):
-    PATH = "app/photo/player"
+async def create_upload_file(file: UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
+    PATH = "photo/player"
     filename = file.filename
     ext = filename.split('.')[-1].lower()
     if ext not in ['png', 'jpg', 'jpeg']:
         return {"status": "File extension should be .png, .jpg or .jpeg"}
     token_name = secrets.token_hex(10) + '.png'
-    output_path = f"{PATH}/{token_name}"
+    output_path = f"app/photo/player/{token_name}"
 
     # user input image:
     file_content = await file.read()
@@ -82,12 +83,17 @@ async def create_upload_file(file: UploadFile = File(...),user = Depends(get_cur
 
 
 
-
 #--------------------------get the image-------------------------
 from fastapi.responses import FileResponse
-@router.get("/Player/Profile/{filename}")
+@router.get("/player/profile/{filename}")
 async def get_uploaded_image(filename: str):
     image_path = f"app/photo/player/{filename}"
     return FileResponse(image_path)
 
+
+# background image:
+@router.get("/background/image/{filename}")
+async def get_uploaded_image(filename: str):
+    image_path = f"app/photo/player/{filename}"
+    return FileResponse(image_path)
 

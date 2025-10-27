@@ -30,7 +30,7 @@ class Player(Base):
     email = Column(String(100), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
     name = Column(String(100), nullable=False)
-    photo_url = Column(String(500), default='/photo/default.png')
+    photo_url = Column(String(500), default='app/photo/player/default.png')
     
     # bowler,batter,all_rounder
     #category = Column(Enum(PlayerCategory), nullable=False)#enum reques a name 
