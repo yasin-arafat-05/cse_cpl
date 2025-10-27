@@ -11,7 +11,6 @@ from fastapi import APIRouter, Depends, HTTPException, status
 router = APIRouter(tags=['Admin_Tournamet_Management'])
 
 
-
 #1.==================================== TOURNAMENT MANAGEMENT =======================================
 ## 1. Create a new tournament:
 @router.post("/tournaments/create", response_model=schemas.TournamentResponse, status_code=status.HTTP_201_CREATED)

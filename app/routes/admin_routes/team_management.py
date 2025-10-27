@@ -70,7 +70,6 @@ async def get_teams_with_players(tournament_id: int):
 
         response = []
         for team in teams:
-            # Fetch auction players for this team
             ap_result = await sess.execute(
                 select(model.AuctionPlayer)
                 .options(selectinload(model.AuctionPlayer.players))
@@ -79,7 +78,6 @@ async def get_teams_with_players(tournament_id: int):
             )
             auction_players = ap_result.scalars().all()
 
-            # Prepare player data
             players = [
                 schemas.PlayerResponse(
                     id=ap.player_id,

@@ -102,7 +102,6 @@ async def get_auction_status():
     
     
     
-
 # ==================== web socket:) ====================
 @router.websocket("/ws/auction/live")
 async def websocket_auction_live(websocket: WebSocket):

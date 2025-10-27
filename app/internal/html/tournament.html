@@ -48,10 +48,11 @@
 <script>
 async function loadTournaments() {
     try {
+        // Get all tournaments
         const res = await fetch("http://127.0.0.1:8000/api/v1/admin/tournaments/fetch");
         const tournaments = await res.json();
 
-        //<------- Get auction status if live then i will show the live button-------------->
+        // Get auction status
         const statusRes = await fetch("http://127.0.0.1:8000/api/v1/auction/status");
         const auctionStatus = await statusRes.json();
         const activeTournament = auctionStatus.active_tournament;
@@ -82,8 +83,9 @@ async function loadTournaments() {
                         ${t.status.charAt(0).toUpperCase() + t.status.slice(1)}
                     </span>
                     <div class="d-grid gap-2 mt-3">
-                        ${showLiveButton ? `<button class="btn btn-success" onclick="joinLiveAuction(${t.id})">🏁 Live Auction</button>` : ""}
-                        <button class="btn btn-outline-primary" onclick="viewTeams(${t.id}, '${t.name}')">👥 More Information</button>
+                        ${showLiveButton ? `<button class="btn btn-success" onclick="joinLiveAuction(${t.id},'${t.name}')">🏁 Live Auction</button>` : ""}
+                        <button class="btn btn-primary" onclick="viewTeams(${t.id}, '${t.name}')">👥 View Teams</button>
+                        <button class="btn btn-outline-info" onclick="moreInfo(${t.id}, '${t.name}')">ℹ️ More Information</button>
                     </div>
                 </div>
             `;
@@ -94,17 +96,29 @@ async function loadTournaments() {
     }
 }
 
-function joinLiveAuction(tournamentId) {
-    // এখানে তুমি WebSocket join বা redirect করতে পারো live auction page এ
-    window.location.href = `/live-auction.html?tournament_id=${tournamentId}`;
+// Function to join live auction
+function joinLiveAuction(tournamentId, tournamentName) {
+    window.location.href = `/home/yasin/all_program/cpl/app/internal/html/live-auction.html?tournament_id=${tournamentId}&tournament_name=${encodeURIComponent(tournamentName)}`;
 }
 
-function viewTeams(id, name) {
-    window.location.href = `/home/yasin/all_program/cpl/app/internal/html/tournament_summery.html?tournament_id=${id}&tournament_name=${encodeURIComponent(name)}`;
+
+
+
+// Function to view teams of a tournament
+function viewTeams(tournamentId, tournamentName) {
+    window.location.href = `/home/yasin/all_program/cpl/app/internal/html/no_live.html?tournament_id=${tournamentId}&tournament_name=${encodeURIComponent(tournamentName)}`;
 }
 
+
+// Function for More Information button
+function moreInfo(tournamentId, tournamentName) {
+    window.location.href = `/home/yasin/all_program/cpl/app/internal/html/tournament_summery.html?tournament_id=${tournamentId}&tournament_name=${encodeURIComponent(tournamentName)}`;
+}
+
+
+
+// Load tournaments on page load
 loadTournaments();
-
 </script>
 
 </body>
