@@ -1,0 +1,67 @@
+<!-- admin/tournament_create.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tournament Create | Admin Panel</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">নতুন Tournament তৈরি করুন</div>
+    <form id="createForm">
+      <div class="form-group">
+        <label for="name">Tournament Name:</label>
+        <input type="text" required id="name" name="name" placeholder="e.g. CPL 2029">
+      </div>
+      <div class="form-group">
+        <label for="year">Year:</label>
+        <input type="number" required id="year" name="year" placeholder="e.g. 2029">
+      </div>
+      <div class="form-group">
+        <label for="start_date">Start Date:</label>
+        <input type="datetime-local" required id="start_date" name="start_date">
+      </div>
+      <div class="form-group">
+        <label for="end_date">End Date:</label>
+        <input type="datetime-local" required id="end_date" name="end_date">
+      </div>
+      <div class="form-group">
+        <label for="token">Admin Token:</label>
+        <input type="text" id="token" name="token" placeholder="(Bearer ...)" required>
+      </div>
+      <button type="submit">Create Tournament</button>
+    </form>
+    <div id="result"></div>
+    <hr>
+    <button onclick="window.location='index.html'">Back to Tournament List</button>
+  </div>
+  <script src="assets/utils.js"></script>
+  <script>
+    document.getElementById('createForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const year = document.getElementById('year').value.trim();
+      const start = document.getElementById('start_date').value;
+      const end = document.getElementById('end_date').value;
+      const token = document.getElementById('token').value.trim();
+      if (!name || !year || !start || !end || !token) return;
+      const res = await apiFetch('/api/v1/admin/tournaments/create', {
+        method: 'POST',
+        headers: {
+          'accept': 'application/json',
+          'Authorization': token,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name, year: parseInt(year), start_date: start, end_date: end})
+      });
+      const msg = document.getElementById('result');
+      if (!res.ok) {
+        msg.innerHTML = `<span class='error'>Create Failed (${res.status})</span>`;
+        return;
+      }
+      msg.innerHTML = `<span class='success'>Tournament created!</span>`;
+      setTimeout(()=>window.location='index.html', 1500);
+    };
+  </script>
+</body>
+</html>

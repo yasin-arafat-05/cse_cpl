@@ -1,6 +1,7 @@
 from typing import List
 from datetime import datetime
 from app.db import model, schemas
+from sqlalchemy.orm import aliased
 from app.db.db_conn import asyncSession
 from sqlalchemy import select, func, and_
 from app.routes.boardcast import auction_state
@@ -219,10 +220,8 @@ async def create_match(match: schemas.MatchCreate,current_admin: model.Player = 
     async with asyncSession() as sess:
         # Check if tournament exists
         tournament_result = await sess.execute(
-            select(model.Tournament).filter(model.Tournament.id == match.tournament_id)
-        )
+            select(model.Tournament).filter(model.Tournament.id == match.tournament_id))
         tournament = tournament_result.scalar_one_or_none()
-        
         if not tournament:
             raise HTTPException(status_code=404, detail="Tournament not found")
         
@@ -241,7 +240,7 @@ async def create_match(match: schemas.MatchCreate,current_admin: model.Player = 
             raise HTTPException(status_code=400, detail="Teams not found or don't belong to this tournament")
         
         # Convert string date to datetime
-        match_date = datetime.strptime(match.match_date, "%Y-%m-%d %H:%M:%S")
+        match_date = datetime.fromisoformat(match.match_date).date()
         
         new_match = model.Match(
             tournament_id=match.tournament_id,
@@ -274,11 +273,13 @@ async def create_match(match: schemas.MatchCreate,current_admin: model.Player = 
 # 2.  Get all matches for a specific tournament:
 @router.get("/tournaments/{tournament_id}/matches", response_model=List[schemas.MatchResponse])
 async def get_matches_by_tournament(tournament_id: int,current_admin: model.Player = Depends(get_current_admin_user)):
+    TEAM1 = aliased(model.Team,name='team1')
+    TEAM2 = aliased(model.Team,name='team2')
     async with asyncSession() as sess:
         result = await sess.execute(
-            select(model.Match, model.Team, model.Team)
-            .join(model.Team, model.Match.team1_id == model.Team.id, aliased=True)
-            .join(model.Team, model.Match.team2_id == model.Team.id, aliased=True)
+            select(model.Match, TEAM1,TEAM2)
+            .join(TEAM1, model.Match.team1_id == TEAM1.id)
+            .join(TEAM2, model.Match.team2_id == TEAM2.id)
             .filter(model.Match.tournament_id == tournament_id))
         matches_data = result.all()
         return [

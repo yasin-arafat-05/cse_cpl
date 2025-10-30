@@ -1,0 +1,110 @@
+<!-- admin/auction_player_edit.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Auction Player | Admin Panel</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="container">
+  <div class="heading">Auction Player Edit</div>
+  <div class="form-group">
+    <label for="tournamentSelect">Tournament:</label>
+    <select id="tournamentSelect"></select>
+  </div>
+  <div class="form-group">
+    <label for="token">Admin Token:</label>
+    <input type="text" id="token" placeholder="(Bearer ...)" required>
+  </div>
+  <div id="playerList" class="list-group"></div>
+  <div id="editFormDiv" style="display: none">
+    <form id="editForm">
+      <div class="form-group">
+        <label for="base_price">Base Price:</label>
+        <input type="number" id="base_price" name="base_price">
+      </div>
+      <div class="form-group">
+        <label for="start_players">Category/Status:</label>
+        <input type="text" id="start_players" name="start_players" placeholder="ex: A/B/Overseas">
+      </div>
+      <input type="hidden" id="playerId" name="playerId">
+      <button type="submit">Update</button>
+      <button type="button" id="cancelEdit">Cancel</button>
+    </form>
+  </div>
+  <hr>
+  <button onclick="window.location='index.html'">Back</button>
+</div>
+<script src="assets/utils.js"></script>
+<script>
+async function loadTournaments() {
+  const res = await apiFetch('/api/v1/admin/tournaments/fetch', {headers:{'accept':'application/json'}});
+  const sel = document.getElementById('tournamentSelect');
+  sel.innerHTML = '';
+  if (!res.ok) { sel.innerHTML = `<option value=''>লোড হয়নি</option>`; return; }
+  const data = await res.json();
+  if (!data.length) { sel.innerHTML = `<option value=''>Empty</option>`; return; }
+  data.forEach(t => {
+    const o = document.createElement('option');
+    o.value = t.id;
+    o.textContent = t.name+' ('+t.year+')';
+    sel.appendChild(o);
+  });
+}
+
+async function loadAuctionPlayers(tid) {
+  const res = await apiFetch(`/api/v1/admin/auction/tournaments/${tid}/players`, {headers:{'accept':'application/json'}});
+  const parent = document.getElementById('playerList');
+  parent.innerHTML = '';
+  if (!res.ok) { parent.innerHTML = `<div class='error'>Could not load (${res.status})</div>`; return; }
+  const data = await res.json();
+  data.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'list-group-item flex-between';
+    div.innerHTML = `<span>${p.name} (#${p.id}) | ${p.base_price?' '+p.base_price+'৳':''} | ${p.start_players? p.start_players : '' }</span>` +
+      `<button data-id='${p.id}' class='editBtn'>Edit</button>`;
+    parent.appendChild(div);
+  });
+  document.querySelectorAll('.editBtn').forEach(btn => {
+    btn.onclick = function() {
+      const pid = this.getAttribute('data-id');
+      const player = data.find(p=>p.id==pid);
+      document.getElementById('playerId').value = player.id;
+      document.getElementById('base_price').value = player.base_price || '';
+      document.getElementById('start_players').value = player.start_players || '';
+      document.getElementById('editFormDiv').style.display = 'block';
+    }
+  });
+}
+
+document.getElementById('tournamentSelect').onchange = function() {
+  loadAuctionPlayers(this.value);
+}
+document.getElementById('cancelEdit').onclick = function() {
+  document.getElementById('editFormDiv').style.display = 'none';
+}
+document.getElementById('editForm').onsubmit = async function(e) {
+  e.preventDefault();
+  const pid = document.getElementById('playerId').value;
+  const tid = document.getElementById('tournamentSelect').value;
+  const token = document.getElementById('token').value.trim();
+  const base_price = Number(document.getElementById('base_price').value);
+  const start_players = document.getElementById('start_players').value.trim();
+  if (!pid || !tid || !token) return;
+  const res = await apiFetch(`/api/v1/admin/auction/prepared-player/${pid}`,{
+    method:'PUT',
+    headers:{'accept':'application/json','Authorization':token,'Content-Type':'application/json'},
+    body: JSON.stringify({base_price, start_players})
+  });
+  if(res.ok) {
+    alert('Player updated!');
+    document.getElementById('editFormDiv').style.display = 'none';
+    loadAuctionPlayers(tid);
+  } else {
+    alert('Update failed!');
+  }
+}
+window.onload = function() { loadTournaments(); };
+</script>
+</body>
+</html>

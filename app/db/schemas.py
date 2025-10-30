@@ -108,7 +108,7 @@ class MatchCreate(BaseModel):
     tournament_id: int
     team1_id: int
     team2_id: int
-    match_date: str  
+    match_date: str  = datetime.now(timezone.utc).isoformat()
     venue: str
 
 class MatchResponse(BaseModel):
@@ -116,9 +116,9 @@ class MatchResponse(BaseModel):
     tournament_id: int
     team1_id: int
     team2_id: int
-    match_date: str
+    match_date: str 
     venue: str
-    created_at: str
+    created_at: str 
     team1_name: str
     team2_name: str
 

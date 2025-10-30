@@ -1,0 +1,31 @@
+<!-- admin/ip_config.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - API/IP Config</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">API/IP Configuration</div>
+    <form id="ipForm">
+      <div class="form-group">
+        <label for="baseurl">API BASE URL/IP:</label>
+        <input type="text" id="baseurl" name="baseurl" placeholder="e.g. http://localhost:8000" required>
+      </div>
+      <button type="submit">Save & Continue</button>
+    </form>
+    <div class="mt2"><a href="index.html">Skip & Go to Admin Panel</a></div>
+  </div>
+  <script src="assets/utils.js"></script>
+  <script>
+    document.getElementById('baseurl').value = getBaseURL();
+    document.getElementById('ipForm').onsubmit = function(e) {
+      e.preventDefault();
+      setBaseURL(document.getElementById('baseurl').value.trim());
+      alert('API Base URL saved!');
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

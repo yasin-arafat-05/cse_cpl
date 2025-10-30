@@ -1,0 +1,52 @@
+<!-- admin/team_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team List | Admin Panel</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">Team List</div>
+    <div class="form-group">
+      <label for="tournamentSelect">Tournament:</label>
+      <select id="tournamentSelect"></select>
+    </div>
+    <div id="teamList"></div>
+    <hr>
+    <button onclick="window.location='index.html'">Back</button>
+  </div>
+<script src="assets/utils.js"></script>
+<script>
+async function loadTournaments() {
+  const res = await apiFetch('/api/v1/admin/tournaments/fetch', {headers:{'accept':'application/json'}});
+  const sel = document.getElementById('tournamentSelect');
+  sel.innerHTML = '';
+  if (!res.ok) { sel.innerHTML = `<option value=''>লোড হয়নি</option>`; return; }
+  const data = await res.json();
+  if (!data.length) { sel.innerHTML = `<option value=''>Empty</option>`; return; }
+  data.forEach(t => {
+    const o = document.createElement('option');
+    o.value = t.id;
+    o.textContent = t.name+' ('+t.year+')';
+    sel.appendChild(o);
+  });
+}
+async function loadTeams(tid) {
+  const res = await apiFetch(`/api/v1/admin/tournaments/${tid}/teams`, {headers:{'accept':'application/json'}});
+  const el = document.getElementById('teamList');
+  el.innerHTML = '';
+  if (!res.ok) { el.innerHTML = `<span class='error'>Could not fetch (${res.status})</span>`; return; }
+  const data = await res.json();
+  if (!data.length) { el.innerHTML = `<span>No team in this tournament.</span>`; return; }
+  el.innerHTML = '<ul>' + data.map(t => `<li>${t.team_name} (${t.team_code})</li>`).join('') + '</ul>';
+}
+window.onload = () => {
+  loadTournaments();
+  document.getElementById('tournamentSelect').onchange = function() {
+    loadTeams(this.value);
+  }
+}
+</script>
+</body>
+</html>

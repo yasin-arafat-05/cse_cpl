@@ -1,0 +1,50 @@
+<!-- admin/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel - Tournament Select</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="heading">Tournament নির্বাচন করুন</div>
+    <div class="form-group">
+      <label for="tournamentSelect">Tournament:</label>
+      <select id="tournamentSelect"></select>
+    </div>
+    <button id="gotoTournament">পরবর্তী ধাপ</button>
+    <hr>
+    <div class="mt2"><a href="ip_config.html">API/IP পরিবর্তন করুন</a></div>
+  </div>
+  <script src="assets/utils.js"></script>
+  <script>
+    // Fetch tournaments & populate dropdown
+    async function loadTournaments() {
+      const res = await apiFetch('/api/v1/admin/tournaments/fetch', {headers: {'accept': 'application/json'}});
+      const dd = document.getElementById('tournamentSelect');
+      dd.innerHTML = '';
+      if (!res.ok) {
+        dd.innerHTML = `<option value="">লোড হয়নি (${res.status})</option>`;
+        return;
+      }
+      const data = await res.json();
+      if (!data.length) {
+        dd.innerHTML = `<option value="">কোন Tournament নেই</option>`;
+        return;
+      }
+      data.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.id;
+        opt.textContent = t.name + ' (' + t.year + ')';
+        dd.appendChild(opt);
+      });
+    }
+    loadTournaments();
+    document.getElementById('gotoTournament').onclick = function() {
+      const tid = document.getElementById('tournamentSelect').value;
+      if (!tid) { alert('Tournament নির্বাচন করুন'); return; }
+      window.location.href = `tournament_create.html?tid=${tid}`;
+    }
+  </script>
+</body>
+</html>
