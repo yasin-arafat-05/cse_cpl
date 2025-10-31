@@ -87,7 +87,8 @@ class Tournament(Base):
     matches = relationship("Match", back_populates="tournaments",cascade="all, delete-orphan")
     teams = relationship("Team", back_populates="tournaments",cascade="all, delete-orphan")
     auction_players = relationship("AuctionPlayer", back_populates="tournaments",cascade="all, delete-orphan")
-
+    tounament_image = relationship("TounamnetImage", back_populates="tournaments",cascade="all, delete-orphan")
+    
 
 class Team(Base):
     __tablename__ = 'teams'
@@ -95,6 +96,7 @@ class Team(Base):
     id = Column(Integer,index=True, primary_key=True)
     tournament_id = Column(Integer, ForeignKey('tournaments.id'))
     team_name = Column(String(100), nullable=False)
+    conis = Column(Integer,default=5000)
     team_code = Column(String(100),default=None)
     logo_url = Column(String(255),default=None)
     created_at = Column(DateTime, default=func.now())
@@ -154,3 +156,20 @@ class AuctionPlayer(Base):
     teams = relationship("Team",back_populates="auction_players")
     
     
+# tounament image upload: 
+class TounamnetImage(Base):
+    __tablename__ = 'tounament_image'
+    id = Column(Integer,index=True,primary_key=True)
+    tournament_id = Column(Integer, ForeignKey('tournaments.id'), nullable=False)
+    photo_url = Column(String(500), nullable=True)
+    
+    #relationship:)
+    tournaments = relationship("Tournament",back_populates="tounament_image")
+    
+# background image upload:
+class BackgroundImage(Base):
+    __tablename__ = 'background_image'
+    id = Column(Integer,index=True,primary_key=True)
+    file_name = Column(String(50),nullable=False)
+    photo_url = Column(String(50),nullable=False)
+   
