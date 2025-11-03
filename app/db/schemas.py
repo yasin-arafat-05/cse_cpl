@@ -42,6 +42,7 @@ class CreateUser(BaseModel):
 class USERME(BaseModel):
     email : str
     id : int 
+    category : str 
     
     
     

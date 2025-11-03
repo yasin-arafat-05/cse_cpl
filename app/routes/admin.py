@@ -15,7 +15,7 @@ router = APIRouter(tags=['Admin'])
 
 # === 5. Get the a perticular team with all the team - member: ===
 @router.get("/teams/{team_id}/player-count", response_model=schemas.TeamPlayerCount)
-async def get_team_player_count(team_id: int,sess = Annotated[AsyncSession,Depends(get_db)], current_admin: model.Player = Depends(get_current_admin_user)):
+async def get_team_player_count(team_id: int,sess : Annotated[AsyncSession,Depends(get_db)], current_admin: model.Player = Depends(get_current_admin_user)):
     try:
         team_result = await sess.execute(select(model.Team).filter(model.Team.id == team_id))
         team = team_result.scalar_one_or_none()
@@ -48,7 +48,7 @@ async def get_team_player_count(team_id: int,sess = Annotated[AsyncSession,Depen
 # ======================== DASHBOARD & ANALYTICS ========================
 # 1. Get comprehensive overview of a tournament"""
 @router.get("/dashboard/tournaments/{tournament_id}/overview")
-async def get_tournament_overview(tournament_id: int,sess = Annotated[AsyncSession,Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
+async def get_tournament_overview(tournament_id: int,sess : Annotated[AsyncSession,Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
     try:
         tournament_result = await sess.execute(
                 select(model.Tournament).filter(model.Tournament.id == tournament_id)
@@ -106,7 +106,7 @@ async def get_tournament_overview(tournament_id: int,sess = Annotated[AsyncSessi
 
 #2.Get player distribution across teams in a tournament:
 @router.get("/dashboard/teams/{tournament_id}/player-distribution")
-async def get_team_player_distribution(tournament_id: int,sess = Annotated[AsyncSession,Depends(get_db)]):
+async def get_team_player_distribution(tournament_id: int,sess : Annotated[AsyncSession,Depends(get_db)]):
         try:
             result = await sess.execute(
                 select(

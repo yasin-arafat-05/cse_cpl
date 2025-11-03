@@ -31,22 +31,26 @@ Mount is going to tell the fastapi that in this directory will save static files
 '''
 router.mount("/photo", StaticFiles(directory="app/photo"), name="photo")
 
-def background_processing(file_content, output_path):
+def background_processing(file_content, output_path, category):
     input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
-
+    
     # 1: Remove background using lightweight model
     session = new_session(model_name="u2netp")
     no_bg = remove(data=input_image, session=session)
-
-    # 2: Load and resize custom background
-    bg_path = "app/photo/backgrounds/Background.jpg"
-    background = Image.open(bg_path).convert("RGBA").resize(no_bg.size)
-
-    # 3: Paste the no-bg image on background
-    position = (250, 250)
+    
+    # Resize the no_bg image to fit exactly the target area (500x680)
+    target_size = (500, 680) 
+    no_bg = no_bg.resize(target_size, Image.Resampling.LANCZOS) 
+    
+    # 2:  background ( 1080x1080)
+    bg_path = os.path.join("app", "photo", "backgrounds", f"{category}.png")
+    background = Image.open(bg_path).convert("RGBA")
+    
+    # 3: Paste the no-bg image on background 
+    position = (300, 400) 
     background.paste(no_bg, position, no_bg)
-
-    # 4: Save final image
+    
+    # 4: Resize final image and save
     final_img = background.resize((1000, 1024))
     final_img.save(output_path, format="PNG")
 
@@ -63,11 +67,12 @@ async def create_upload_file(sess: Annotated[AsyncSession, Depends(get_db)],file
         ext = filename.split('.')[-1].lower()
         if ext not in ['png', 'jpg', 'jpeg']:
             return {"status": "File extension should be .png, .jpg or .jpeg"}
+        
         token_name = secrets.token_hex(10) + '.png'
-        output_path = f"app/photo/player/{token_name}"
+        output_path = os.path.join("app","photo","player",f"{token_name}")
         file_content = await file.read()
         if bgtask is not None:
-            bgtask.add_task(background_processing,file_content,output_path)
+            bgtask.add_task(background_processing,file_content,output_path,user.category.value)
         else:
             background_processing(file_content, output_path)
         result = await sess.execute(select(model.Player).where(model.Player.email == user.email))
@@ -96,13 +101,20 @@ async def get_uploaded_image(filename: str):
     return FileResponse(image_path)
 
 
+# =======================================================================
+# background processing:
+
+
+
 # =====  Update Background Image ===== 
 #update background image:
+# must be file_name should be in ["all_rounder","batsman","bolwer","wk_batsman"]
 @router.put("/background/image/update")
 async def update_upload_background_image(file_name:str,sess: Annotated[AsyncSession, Depends(get_db)],file : UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
     try:
-        if file_name not in ["all_rounder","batsman","bolwer","wk_batsman"]:
+        if file_name not in ["all_rounder","batsman","bowler","wk_batsman"]:
             return {"status": "Incorrect Image File Name"}
+        
         filename = file.filename
         ext = filename.split('.')[-1].lower()
         if ext not in ['png', 'jpg', 'jpeg']:
@@ -114,6 +126,7 @@ async def update_upload_background_image(file_name:str,sess: Annotated[AsyncSess
         rest = await sess.execute(
             select(model.BackgroundImage).where(model.BackgroundImage.file_name==file_name)
         )
+        
         img_file_name = rest.scalar_one_or_none()
         if img_file_name:
             img_file_name.photo_url = output_path
