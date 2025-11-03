@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from app.routes import boardcast
 from app.lifespan import lifespan
+from app.routes import profiles
 from app.routes import player_image
 from app.middleware import register_middleware
 from app.routes.admin_routes import all_players
@@ -30,12 +31,15 @@ register_middleware(app)
 app.include_router(login.router,prefix=f"/api/{version}")
 app.include_router(signup.router,prefix=f"/api/{version}")
 
+app.include_router(current_user.router,prefix=f"/api/{version}")
+app.include_router(profiles.router,prefix=f"/api/{version}")
+
+
 app.include_router(player_image.router,prefix=f"/api/{version}")
 app.include_router(tournament_photo_gallary.router,prefix=f"/api/{version}")
 
 
 app.include_router(all_players.router,prefix=f"/api/{version}/admin")
-app.include_router(current_user.router,prefix=f"/api/{version}")
 app.include_router(boardcast.router,prefix=f"/api/{version}")
 app.include_router(tounament_management.router,prefix=f"/api/{version}/admin")
 app.include_router(team_management.router,prefix=f"/api/{version}/admin")
@@ -49,7 +53,7 @@ app.include_router(admin.router,prefix=f"/api/{version}/admin")
 
 @app.get("/")
 async def test_log():
-    return "everything is working fine from: Yasin-Arafat:)"
+    return "Root Endpoint is working fine from: 😛 Yasin-Arafat 😆:)"
     
     
     
