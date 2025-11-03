@@ -3,6 +3,7 @@ from typing import Any,Callable
 from fastapi import FastAPI,status
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
+from sqlalchemy.exc import SQLAlchemyError
 
 
 class CustomException(Exception):
@@ -91,6 +92,30 @@ def register_all_errors(app:FastAPI):
             "error_code":"email exists"
         }
     ))
+
+    # Catch-all for database errors to avoid server crash and return structured error
+    async def sqlalchemy_exception_handler(request: Request, exc: SQLAlchemyError):
+        return JSONResponse(
+            content={
+                "message": "A database error occurred. Please try again later.",
+                "error_code": "database_error"
+            },
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+    app.add_exception_handler(SQLAlchemyError, sqlalchemy_exception_handler)
+
+    # Generic fallback exception handler
+    async def generic_exception_handler(request: Request, exc: Exception):
+        return JSONResponse(
+            content={
+                "message": "An unexpected error occurred. Please try again.",
+                "error_code": "internal_server_error"
+            },
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+    app.add_exception_handler(Exception, generic_exception_handler)
 
 
     

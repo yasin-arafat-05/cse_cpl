@@ -1,7 +1,10 @@
+from fastapi import Depends
+from typing import Annotated
 from app.db.model import Player
 from sqlalchemy.sql import select
+from app.db.db_conn import get_db
 from app.db.schemas import CreateUser
-from app.db.db_conn import asyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi.background import BackgroundTasks
 from app.internal.error import MailExistError
 from fastapi import status,APIRouter,HTTPException
@@ -13,37 +16,36 @@ router = APIRouter(tags=['Sign-up'])
 
 #_________________________________ REGISTRATION ENDPOINT _________________________________
 @router.post('/registration', status_code=status.HTTP_201_CREATED)
-async def user_registration(user: CreateUser,background_task:BackgroundTasks):
+async def user_registration(user: CreateUser,background_task:BackgroundTasks,sess: Annotated[AsyncSession, Depends(get_db)] = None):
     # exclude_unset=True if user don't give any value of any filed then create new user 
     # By the default given when we create schema in database in tables.py files.
     user_data = user.model_dump(exclude_unset=True)
     user_data["password"] = get_password_hash(user_data["password"])
-    async with asyncSession() as sess:
-        result = await sess.execute(
-                    select(Player).filter(Player.email == user_data["email"])
-                )
-        fnd = result.scalar_one_or_none()
-        if fnd:
-            raise MailExistError()
+    result = await sess.execute(
+                select(Player).filter(Player.email == user_data["email"])
+            )
+    fnd = result.scalar_one_or_none()
+    if fnd:
+        raise MailExistError()
+    
+    try:
+        new_user = Player(**user_data)
+        sess.add(new_user)
+        await sess.commit()
+        await sess.refresh(new_user)
         
-        try:
-            new_user = Player(**user_data)
-            sess.add(new_user)
-            await sess.commit()
-            await sess.refresh(new_user)
-            
-            #send email:
-            recip = [user_data["email"]]
-            sub = "Welcome To Our CPL Websites"
-            html = pstu_cse_event_account_created(user_data["name"])
-            background_task.add_task(send_mail_endpoint,recip,sub,html)
-        except ValueError as e:
-            await sess.rollback()
-            er = f"Error occur due to: {str(e)}"
-            raise HTTPException(status_code=400, detail="Your Category Or Gmail is Not Correct")
-        except Exception as e:
-            await sess.rollback()
-            er = f"Error occur due to: {str(e)}"
-            raise HTTPException(status_code=400, detail="can't make an account something went wrong")
+        #send email:
+        recip = [user_data["email"]]
+        sub = "Welcome To Our CPL Websites"
+        html = pstu_cse_event_account_created(user_data["name"])
+        background_task.add_task(send_mail_endpoint,recip,sub,html)
+    except ValueError as e:
+        await sess.rollback()
+        er = f"Error occur due to: {str(e)}"
+        raise HTTPException(status_code=400, detail="Your Category Or Gmail is Not Correct")
+    except Exception as e:
+        await sess.rollback()
+        er = f"Error occur due to: {str(e)}"
+        raise HTTPException(status_code=400, detail="can't make an account something went wrong")
     return {"status":200,"detail":"User Created Successfully. Please Login And Enjoy the day."}
 

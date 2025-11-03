@@ -14,7 +14,9 @@ from app.db import model
 from sqlalchemy.sql import select
 from fastapi import BackgroundTasks
 from rembg import new_session,remove
-from app.db.db_conn import asyncSession
+from typing import Annotated
+from app.db.db_conn import get_db
+from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import HTTPException,status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -55,20 +57,19 @@ It's a very heavy and cpu bound task.
 Use lighiter model like, u2netp.
 """
 @router.post("/upload/player/profile")
-async def create_upload_file(file: UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
-    filename = file.filename
-    ext = filename.split('.')[-1].lower()
-    if ext not in ['png', 'jpg', 'jpeg']:
-        return {"status": "File extension should be .png, .jpg or .jpeg"}
-    token_name = secrets.token_hex(10) + '.png'
-    output_path = f"app/photo/player/{token_name}"
-
-    # user input image:
-    file_content = await file.read()
-    bgtask.add_task(background_processing,file_content,output_path)
-
-    #5. Update Database
-    async with asyncSession() as sess:
+async def create_upload_file(sess: Annotated[AsyncSession, Depends(get_db)],file: UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
+    try:
+        filename = file.filename
+        ext = filename.split('.')[-1].lower()
+        if ext not in ['png', 'jpg', 'jpeg']:
+            return {"status": "File extension should be .png, .jpg or .jpeg"}
+        token_name = secrets.token_hex(10) + '.png'
+        output_path = f"app/photo/player/{token_name}"
+        file_content = await file.read()
+        if bgtask is not None:
+            bgtask.add_task(background_processing,file_content,output_path)
+        else:
+            background_processing(file_content, output_path)
         result = await sess.execute(select(model.Player).where(model.Player.email == user.email))
         curr_user = result.scalar_one_or_none()
         if not curr_user:
@@ -78,8 +79,13 @@ async def create_upload_file(file: UploadFile = File(...),bgtask : BackgroundTas
             )
         curr_user.photo_url = output_path
         await sess.commit()
-    await file.close()
-    return {"status": "success", "filename": token_name}
+        await file.close()
+        return {"status": "success", "filename": token_name}
+    except HTTPException:
+        raise
+    except Exception:
+        await sess.rollback()
+        raise HTTPException(status_code=500, detail="Failed to upload player image")
 
 
 # ============== get the image ==========================
@@ -93,37 +99,28 @@ async def get_uploaded_image(filename: str):
 # =====  Update Background Image ===== 
 #update background image:
 @router.put("/background/image/update")
-async def update_upload_background_image(file_name:str,file : UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
-    
-    if file_name not in ["all_rounder","batsman","bolwer","wk_batsman"]:
-        return {"status": "Incorrect Image File Name"}
-    
-    filename = file.filename
-    ext = filename.split('.')[-1].lower()
-    if ext not in ['png', 'jpg', 'jpeg']:
-        return {"status": "File extension should be .png, .jpg or .jpeg"}
-    token_name = file_name + '.png'
-    
-    output_path = os.path.join("app","photo","backgrounds",token_name)
-
-    # user input image:
-    file_content = await file.read()
-    input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
-    
-    async with asyncSession() as sess:
+async def update_upload_background_image(file_name:str,sess: Annotated[AsyncSession, Depends(get_db)],file : UploadFile = File(...),bgtask : BackgroundTasks = None,user = Depends(get_current_user)):
+    try:
+        if file_name not in ["all_rounder","batsman","bolwer","wk_batsman"]:
+            return {"status": "Incorrect Image File Name"}
+        filename = file.filename
+        ext = filename.split('.')[-1].lower()
+        if ext not in ['png', 'jpg', 'jpeg']:
+            return {"status": "File extension should be .png, .jpg or .jpeg"}
+        token_name = file_name + '.png'
+        output_path = os.path.join("app","photo","backgrounds",token_name)
+        file_content = await file.read()
+        input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
         rest = await sess.execute(
             select(model.BackgroundImage).where(model.BackgroundImage.file_name==file_name)
         )
         img_file_name = rest.scalar_one_or_none()
-        
         if img_file_name:
             img_file_name.photo_url = output_path
             await sess.commit()
             input_image.save(output_path)
-            
             await file.close()
             return {"status":"successful","details":"Background image update successfully"}
-        
         write_img = model.BackgroundImage(
                 file_name=file_name,
                 photo_url= output_path
@@ -134,13 +131,21 @@ async def update_upload_background_image(file_name:str,file : UploadFile = File(
         input_image.save(output_path)
         await file.close()
         return {"status":"successful","details":"Background image upload successfully"}
+    except HTTPException:
+        raise
+    except Exception:
+        await sess.rollback()
+        raise HTTPException(status_code=500, detail="Failed to update background image")
 
 
 
 # background image:
 @router.get("/background/image/{filename}")
 async def get_background_image(filename: str,user = Depends(get_current_admin_user)):
-    image_path = os.path.join("app","photo","backgrounds",f"{filename}")
-    return FileResponse(image_path)
+    try:
+        image_path = os.path.join("app","photo","backgrounds",f"{filename}")
+        return FileResponse(image_path)
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to fetch background image")
 
 

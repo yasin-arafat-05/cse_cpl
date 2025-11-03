@@ -9,7 +9,9 @@ from app.db import model
 from sqlalchemy.sql import select
 from fastapi.requests import Request
 from sqlalchemy.orm import selectinload
-from app.db.db_conn import asyncSession
+from typing import Annotated
+from app.db.db_conn import get_db
+from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse,HTMLResponse
 from app.routes.current_user import get_current_admin_user
@@ -63,18 +65,19 @@ auction_state = AuctionState()
 
 # ====================Go-Live For A Pariticular Tounament====================
 @router.post("/auction/go-live/{tournament_id}")
-async def start_live_auction(tournament_id: int,current_admin: model.Player = Depends(get_current_admin_user)):
-    async with asyncSession() as sess:
-        # Check if tournament exists or not:
+async def start_live_auction(tournament_id: int,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
+    try:
         result = await sess.execute(
             select(model.Tournament).filter(model.Tournament.id == tournament_id))
         tournament = result.scalar_one_or_none()
-        
         if not tournament:
             raise HTTPException(status_code=404, detail="Tournament not found")
-    
-    auction_state.start_live(tournament_id)
-    return {"message": f"Auction for tournament {tournament_id} is now LIVE!"}
+        auction_state.start_live(tournament_id)
+        return {"message": f"Auction for tournament {tournament_id} is now LIVE!"}
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to start live auction")
    
    
 # ================= Stop Live =========================
@@ -82,23 +85,28 @@ async def start_live_auction(tournament_id: int,current_admin: model.Player = De
 async def stop_live_auction(
     current_admin: model.Player = Depends(get_current_admin_user)
 ):
-    # Broadcast ending message
-    await auction_state.broadcast({
-        "type": "auction_ended",
-        "message": "Auction has ended"
-    })
-    auction_state.stop_live()
-    return {"message": "Auction stopped"}
+    try:
+        await auction_state.broadcast({
+            "type": "auction_ended",
+            "message": "Auction has ended"
+        })
+        auction_state.stop_live()
+        return {"message": "Auction stopped"}
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to stop live auction")
     
 
 # For Controlling the Live Button Brother.
 @router.get("/auction/status")
 async def get_auction_status():
-    status =  {
-        "is_live": auction_state.is_live,
-        "active_tournament": auction_state.active_tournament
-    }
-    return status
+    try:
+        status =  {
+            "is_live": auction_state.is_live,
+            "active_tournament": auction_state.active_tournament
+        }
+        return status
+    except Exception:
+        raise HTTPException(status_code=500, detail="Failed to fetch auction status")
     
     
     
