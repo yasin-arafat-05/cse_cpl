@@ -18,4 +18,9 @@
 
 ```
 
+### Backend:
+- FASTAPI (Python)
+- DATABASE (POSTGRESQL)
+
+
 
