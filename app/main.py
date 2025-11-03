@@ -33,6 +33,7 @@ app.include_router(signup.router,prefix=f"/api/{version}")
 app.include_router(player_image.router,prefix=f"/api/{version}")
 app.include_router(tournament_photo_gallary.router,prefix=f"/api/{version}")
 
+
 app.include_router(all_players.router,prefix=f"/api/{version}/admin")
 app.include_router(current_user.router,prefix=f"/api/{version}")
 app.include_router(boardcast.router,prefix=f"/api/{version}")
@@ -40,6 +41,7 @@ app.include_router(tounament_management.router,prefix=f"/api/{version}/admin")
 app.include_router(team_management.router,prefix=f"/api/{version}/admin")
 app.include_router(auction_management.router,prefix=f"/api/{version}/admin")
 app.include_router(match_management.router,prefix=f"/api/{version}/admin")
+app.include_router(player_info_up.router,prefix=f"/api/{version}/admin")
 
 
 app.include_router(admin.router,prefix=f"/api/{version}/admin")
