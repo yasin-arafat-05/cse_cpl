@@ -8,14 +8,13 @@ connection_string = CONFIG.DATABASE_URL
 
 async_engine = create_async_engine(
     url=connection_string,
-    
-     # Connection Pool Settings
+    # Connection Pool Settings
     pool_size=20,      
     max_overflow=10,   
     pool_timeout=30,  
     pool_recycle=1800, 
     pool_pre_ping=True,
-    echo=True # Set to False in production
+    echo=True #Set to False in production
 )
 
 
@@ -26,9 +25,8 @@ asyncSession = async_sessionmaker(
     autoflush=False,
 )
 
+
 Base = declarative_base()
-
-
 
 
 # database utility: 

@@ -1,8 +1,9 @@
 
 from app.db import model
+from typing import Annotated
+from app.db.db_conn import get_db
 from sqlalchemy.sql import select 
 from app.db.db_conn import asyncSession
-from typing import Annotated,AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.schemas import PlayerStatisticsUpate
 from fastapi import APIRouter,Depends,HTTPException,status
@@ -11,19 +12,35 @@ from app.routes.current_user import get_current_admin_user
 
 router = APIRouter(tags=["Player_Score_Update"])
 
-async def get_db() -> AsyncGenerator[AsyncSession,None]:
-    async with asyncSession() as session:
-        yield session
 
 @router.put("/update/batting/info/{player_id}")
-async def update_batting_info(player_id:int,update_info:PlayerStatisticsUpate,sess: Annotated[AsyncSession,Depends(asyncSession)],user=Depends(get_current_admin_user)):
-    async with sess() as sess:
-        info = sess.execute(
+async def update_batting_info(player_id:int,update_info:PlayerStatisticsUpate,sess: Annotated[AsyncSession,Depends(get_db)],user=Depends(get_current_admin_user)):
+        info = await sess.execute(
             select(model.PlayerStats).where(model.PlayerStats.player_id==player_id))
         player = info.scalar_one_or_none()
-        
+    
         if not player:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Player not found")
 
+        
+        player.runs  += update_info.runs,
+        player.balls_faced  += update_info.balls_faced,
+        
+        player.wickets +=  update_info.wickets,
+        player.runs_conceded +=  update_info.runs_conceded,
+        
+        player.overs_bowled += update_info.overs_bowled,
+        # Convert Overs values: 
+        total_overs = player.overs_bowled + update_info.overs_bowled
+        # Convert total overs to balls
+        total_balls = int(total_overs) * 6 + int(round((total_overs % 1) * 10))
+        # Convert balls back to overs
+        overs = total_balls // 6
+        balls = total_balls % 6
+        player.overs_bowled = float(f"{overs}.{balls}")
+        await sess.commit()
+        return {"message": "Player batting info updated successfully"}
+        
+        
         
     

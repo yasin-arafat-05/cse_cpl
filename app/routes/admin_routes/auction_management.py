@@ -63,18 +63,20 @@ async def get_auction_players(tournament_id: int,current_admin: model.Player = D
             .filter(model.AuctionPlayer.tournament_id == tournament_id)
         )
         auction_data = result.all()
+        print(auction_data)
         return [
             schemas.AuctionPlayerResponse(
                 id=ap.id,
                 player_id=ap.player_id if ap else None,
                 tournament_id=ap.tournament_id if ap else None,
                 start_players=ap.start_players if ap else None,
+                category= p.category if ap else None, # category 
                 base_price=ap.base_price if ap else None,
                 sold_price=ap.sold_price if ap else None,
                 sold_to_team_id=ap.sold_to_team_id if ap else None,
                 player_name=p.name if p else None,
                 team_name=t.team_name if t else None
-            ) for ap, p, t in auction_data
+            ) for ap, p, t in auction_data #ap-> auctionplayer, p->player, t->team
         ]
 
 

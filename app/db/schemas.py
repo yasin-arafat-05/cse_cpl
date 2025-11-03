@@ -111,6 +111,7 @@ class AuctionPlayerResponse(BaseModel):
     player_id: int
     tournament_id: int
     start_players: Optional[str] = None 
+    category : Optional[str] = None 
     base_price: Optional[float] = None 
     sold_price: Optional[float] = None 
     sold_to_team_id: Optional[int] = None 
