@@ -155,8 +155,6 @@ class TeamPlayerCount(BaseModel):
     max_players: int = 30
     
     
-    
-    
 class PlayerResponse(BaseModel):
     id: int
     name: str
@@ -169,5 +167,15 @@ class TeamWithPlayersResponse(BaseModel):
     team_name: str
     team_code: str | None
     players: List[PlayerResponse]
+    
+    
+class PlayerStatisticsUpate(BaseModel):
+    runs : Optional[int] = 0 
+    balls_faced : Optional[int] = 0 
+    wickets : Optional[int] = 0 
+    overs_bowled : Optional[float] = 0
+    runs_conceded : Optional[int] = 0
+    
+     
     
     

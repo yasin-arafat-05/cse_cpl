@@ -6,7 +6,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Float, DateTime, Date, Boolean, Enum, ForeignKey
 
-
 #______________enum_____________
 class PlayerCategory(enum.Enum):
     batter = "batter"
