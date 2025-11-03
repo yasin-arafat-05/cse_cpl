@@ -174,46 +174,19 @@ def pstu_cse_event_account_created(username: str) -> str:
     <center>
         <div class="container">
             <div class="header">
-                <h1>Welcome to PSTU CSE Annual Gaming Event 🎮</h1>
+                <h1> CPL (CSE Premier League) </h1>
             </div>
             <div class="content">
                 <h2>Hello, {username}!</h2>
-                <p>We’re thrilled to have you join the <strong>Faculty of Computer Science and Engineering (CSE)</strong> at Patuakhali Science and Technology University (PSTU) for our annual gaming event — your platform for exciting competitions, skill-building, and fun!</p>
-                <p>Your account has been successfully created. You can now register for events, participate in intra-university gaming challenges, programming contests, and connect with fellow students.</p>
-                
-                <table class="details-table">
-                    <tr>
-                        <th>Username</th>
-                        <td>{username}</td>
-                    </tr>
-                    <tr>
-                        <th>Account Status</th>
-                        <td>Active</td>
-                    </tr>
-                    <tr>
-                        <th>Faculty Founded</th>
-                        <td>2003</td>
-                    </tr>
-                    <tr>
-                        <th>Departments</th>
-                        <td>5 (CSIT, CCE, EEE, Math, PME)</td>
-                    </tr>
-                    <tr>
-                        <th>Current Students</th>
-                        <td>230+</td>
-                    </tr>
-                    <tr>
-                        <th>Graduates</th>
-                        <td>400+ from 11 batches</td>
-                    </tr>
-                </table>
+                <p>Assalamualakum! We’re thrilled to have you join the <strong>Faculty of Computer Science and Engineering (CSE)</strong> at Patuakhali Science and Technology University (PSTU) for our intra faculty ckricket tounament event!</p>
+                <p>Your account has been successfully created.</p>
 
-                <p>Start exploring and registering for the upcoming events today! Check out our recent Intra-University Gaming and Programming Contests.</p>
-                <a href="https://cse.pstu.ac.bd/" class="button">Go to Dashboard</a>
+                <p> Check out our recent Intra-University Gaming and Programming Contests.</p>
+                <a href="https://pstu.ac.bd/faculty/faculty-of-computer-science-and-engineering" class="button">💥More About PSTU CSE💥</a>
             </div>
             <div class="footer">
                 <p>Need help? Contact us anytime at the Faculty of CSE, PSTU.</p>
-                <p>&copy; 2025 PSTU CSE. All rights reserved.</p>
+                <p>&copy;PSTU CSE. All rights reserved.</p>
             </div>
         </div>
     </center>

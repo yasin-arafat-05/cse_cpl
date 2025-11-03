@@ -18,12 +18,25 @@ class CreateUser(BaseModel):
     name : Annotated[str,Field(description="User Name")]
     category : Annotated[str,Field(description="Player category (batter, bowler, all_rounder, wicket_keeper)")]
     
+    # <______email______>
+    @field_validator('email',mode="after")
+    @classmethod
+    def validator_email(cls,value):
+        host = str(value).split("@")[-1]
+        if host not in ["cse.pstu.ac.bd"]:
+            raise ValueError("Can't create a account without university email")
+        return value 
+    
+    # <______category______>
     @field_validator('category',mode="after")
     @classmethod
-    def validator(cls,value):
+    def validator_category(cls,value):
         if value not in ["batter","bowler","all_rounder","wicket_keeper"]:
             raise ValueError("category field value is not correct")
         return value 
+    
+    
+    
     
     
 class USERME(BaseModel):

@@ -77,7 +77,6 @@ async def get_teams_with_players(tournament_id: int):
                 .filter(model.AuctionPlayer.sold_to_team_id == team.id)
             )
             auction_players = ap_result.scalars().all()
-
             players = [
                 schemas.PlayerResponse(
                     id=ap.player_id,
@@ -88,7 +87,6 @@ async def get_teams_with_players(tournament_id: int):
                 )
                 for ap in auction_players
             ]
-
             team_data = schemas.TeamWithPlayersResponse(
                 id=team.id,
                 team_name=team.team_name,
@@ -97,5 +95,33 @@ async def get_teams_with_players(tournament_id: int):
             )
             response.append(team_data)
     return response
+
+
+# 3. ===================<>=================<>===================<>===============<>=============
+# =============================== Add Coin Team ================================================
+@router.post('/update/team/coin/{tounament_id}/{team_id}')
+async def update_team_coin(tounament_id,team_id,new_coin,current_admin: model.Player = Depends(get_current_admin_user)):
+    async with asyncSession() as sess:
+        # check the team is exist or not:
+        result = await sess.execute(
+            select(model.Team).filter(
+                and_(
+                model.Team.tournament_id == tounament_id,
+                model.Team.id == team_id
+              )
+            )
+        )
+        team = result.scalars().all()
+        if not team:
+            raise HTTPException(status_code=404, detail="No teams found for this tournament")
+    
+        # update the coin:
+        team.conis += new_coin
+        await sess.commit()
+        
+        return {f"coin update successfull"}
+        
+        
+    
 
 

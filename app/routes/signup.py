@@ -37,9 +37,13 @@ async def user_registration(user: CreateUser,background_task:BackgroundTasks):
             sub = "Welcome To Our CPL Websites"
             html = pstu_cse_event_account_created(user_data["name"])
             background_task.add_task(send_mail_endpoint,recip,sub,html)
+        except ValueError as e:
+            await sess.rollback()
+            er = f"Error occur due to: {str(e)}"
+            raise HTTPException(status_code=400, detail="Your Category Or Gmail is Not Correct")
         except Exception as e:
             await sess.rollback()
             er = f"Error occur due to: {str(e)}"
-            raise HTTPException(status_code=400, detail=er)
+            raise HTTPException(status_code=400, detail="can't make an account something went wrong")
     return {"status":200,"detail":"User Created Successfully. Please Login And Enjoy the day."}
 

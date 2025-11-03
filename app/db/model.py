@@ -173,3 +173,6 @@ class BackgroundImage(Base):
     file_name = Column(String(50),nullable=False)
     photo_url = Column(String(50),nullable=False)
    
+   
+   
+   
