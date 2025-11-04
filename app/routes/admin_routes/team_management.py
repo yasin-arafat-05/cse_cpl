@@ -116,6 +116,7 @@ async def update_team_coin(tounament_id,team_id,new_coin,sess: Annotated[AsyncSe
             if not team:
                 raise HTTPException(status_code=404, detail="No teams found for this tournament")
             team.conis += new_coin
+            team.total_coins_used += new_coin
             await sess.commit()
             return {f"coin update successfull"}
         except HTTPException:

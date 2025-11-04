@@ -8,3 +8,76 @@
 2025-11-04 17:00:09,240 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
 2025-11-04 17:00:09,240 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:00:09
 2025-11-04 17:00:09,241 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:03,978 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:07:07,985 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:07,985 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:08,028 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:08,028 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:08
+2025-11-04 17:07:08,028 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:08,538 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:07:12,461 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:12,461 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:12,544 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:12,544 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:12
+2025-11-04 17:07:12,545 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:22,178 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:07:25,701 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:25,701 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:25,739 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:25,739 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:25
+2025-11-04 17:07:25,739 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:31,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:31,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:31,173 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:31,173 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:31
+2025-11-04 17:07:31,173 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:36,283 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:36,283 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:36,324 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:36,324 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:36
+2025-11-04 17:07:36,324 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:07:37,539 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:07:40,139 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:07:40,139 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:07:40,167 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:07:40,167 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:07:40
+2025-11-04 17:07:40,168 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:10:52,460 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:10:55,302 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:10:55,302 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:10:55,349 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:10:55,349 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:10:55
+2025-11-04 17:10:55,349 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:11:27,516 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:11:32,279 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:11:32,280 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:11:32,325 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:11:32,325 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:11:32
+2025-11-04 17:11:32,325 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:11:34,338 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:11:43,250 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:11:43,250 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:11:43,285 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:11:43,285 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:11:43
+2025-11-04 17:11:43,286 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:11:45,943 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:11:45,943 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:11:45,974 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:11:45,974 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:11:45
+2025-11-04 17:11:45,974 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:11:48,456 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:11:48,456 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:11:48,485 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:11:48,485 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:11:48
+2025-11-04 17:11:48,485 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:11:51,334 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:11:51,334 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:11:51,363 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:11:51,363 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:11:51
+2025-11-04 17:11:51,363 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 17:14:05,758 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 17:14:19,511 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 17:14:19,511 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 17:14:19,542 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 17:14:19,542 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 11:14:19
+2025-11-04 17:14:19,542 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
