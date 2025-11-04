@@ -100,6 +100,41 @@ async def get_teams_with_players(tournament_id: int,sess: Annotated[AsyncSession
 
 
 # 3. ===================<>=================<>===================<>===============<>=============
+@router.get("/team/details/{team_id}/{tournament_id}/players")
+async def get_players_by_team_and_tournament(team_id: int, tournament_id: int,sess: Annotated[AsyncSession, Depends(get_db)]):
+    try:
+        result = await sess.execute(
+            select(model.Player)
+            .join(model.AuctionPlayer, model.AuctionPlayer.player_id == model.Player.id)
+            .where(
+                model.AuctionPlayer.sold_to_team_id == team_id,
+                model.AuctionPlayer.tournament_id == tournament_id
+            )
+        )
+
+        players = result.scalars().all()
+
+        if not players:
+            raise HTTPException(status_code=404, detail="No players found for this team in this tournament")
+
+        return [
+            {
+                "id": p.id,
+                "name": p.name,
+                "email": p.email,
+                "category": p.category.value,
+                "photo_url": p.photo_url
+            }
+            for p in players
+        ]
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        print("Error fetching players:", e)
+        raise HTTPException(status_code=500, detail="Failed to fetch players")
+        
+
 # =============================== Add Coin Team ================================================
 @router.post('/update/team/coin/{tounament_id}/{team_id}')
 async def update_team_coin(tounament_id,team_id,new_coin,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):

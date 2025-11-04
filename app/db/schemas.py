@@ -49,7 +49,16 @@ class USERME(BaseModel):
 class EmailSchema(BaseModel):
     emails : list[str]
     
+class ForgottonPassword(BaseModel):
+    email : str 
     
+ 
+class PasswordReset(BaseModel):
+    emails : EmailStr
+    new_password : str 
+    retype_passowrd : str 
+
+       
     
 class Token(BaseModel):
     access_token: str

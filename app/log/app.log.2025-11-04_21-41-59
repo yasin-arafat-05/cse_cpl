@@ -1,0 +1,429 @@
+2025-11-04 20:15:20,786 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:15:20,786 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:15:20,816 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:15:20,816 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:15:20
+2025-11-04 20:15:20,816 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:15:24,649 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:15:27,922 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:15:27,922 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:15:27,956 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:15:27,957 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:15:27
+2025-11-04 20:15:27,957 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:15:37,078 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.053512s
+2025-11-04 20:15:50,062 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:15:53,312 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:15:53,312 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:15:53,341 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:15:53,341 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:15:53
+2025-11-04 20:15:53,341 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:15:53,399 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.052027s
+2025-11-04 20:15:53,415 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.031537s
+2025-11-04 20:15:53,450 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/5/players 200 from 192.168.0.115 in 0.019033s
+2025-11-04 20:16:22,076 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/7d233b532416343afd20.png 404 from 192.168.0.115 in 0.007442s
+2025-11-04 20:16:22,082 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/d45661dd3879556861ba.png 404 from 192.168.0.115 in 0.009044s
+2025-11-04 20:16:22,086 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/3a8703dcf3595b0be62c.png 404 from 192.168.0.115 in 0.010733s
+2025-11-04 20:16:22,093 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/default.png 404 from 192.168.0.115 in 0.012278s
+2025-11-04 20:16:22,096 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/da038178c182833d0fa9.png 404 from 192.168.0.115 in 0.010559s
+2025-11-04 20:16:32,698 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/admin/auction/select-players 201 from 192.168.0.115 in 0.070729s
+2025-11-04 20:16:32,736 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/d45661dd3879556861ba.png 404 from 192.168.0.115 in 0.000775s
+2025-11-04 20:16:32,746 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/7d233b532416343afd20.png 404 from 192.168.0.115 in 0.001474s
+2025-11-04 20:16:32,747 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/3a8703dcf3595b0be62c.png 404 from 192.168.0.115 in 0.001760s
+2025-11-04 20:16:32,748 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/default.png 404 from 192.168.0.115 in 0.002113s
+2025-11-04 20:16:32,748 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/da038178c182833d0fa9.png 404 from 192.168.0.115 in 0.001636s
+2025-11-04 20:16:37,124 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/logs 401 from 192.168.0.109 in 0.002694s
+2025-11-04 20:16:46,978 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/token 200 from 192.168.0.109 in 0.125451s
+2025-11-04 20:16:56,670 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.032133s
+2025-11-04 20:16:56,681 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.037608s
+2025-11-04 20:16:57,305 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/logs 200 from 192.168.0.109 in 0.012414s
+2025-11-04 20:17:03,671 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.029264s
+2025-11-04 20:17:03,680 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.037888s
+2025-11-04 20:17:03,690 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/5/players 200 from 192.168.0.115 in 0.007717s
+2025-11-04 20:17:03,716 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/7d233b532416343afd20.png 404 from 192.168.0.115 in 0.002098s
+2025-11-04 20:17:03,719 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/default.png 404 from 192.168.0.115 in 0.003825s
+2025-11-04 20:17:03,721 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/d45661dd3879556861ba.png 404 from 192.168.0.115 in 0.005158s
+2025-11-04 20:17:03,723 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/da038178c182833d0fa9.png 404 from 192.168.0.115 in 0.005404s
+2025-11-04 20:17:03,724 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/3a8703dcf3595b0be62c.png 404 from 192.168.0.115 in 0.003078s
+2025-11-04 20:17:54,983 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/6/player-distribution 200 from 192.168.0.115 in 0.031192s
+2025-11-04 20:17:55,001 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/dashboard/teams/player-distribution 404 from 192.168.0.115 in 0.001901s
+2025-11-04 20:18:09,733 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.036574s
+2025-11-04 20:18:09,734 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.034428s
+2025-11-04 20:18:30,108 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.038177s
+2025-11-04 20:18:30,118 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.042980s
+2025-11-04 20:18:30,144 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/5/players 200 from 192.168.0.115 in 0.005644s
+2025-11-04 20:19:10,520 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/d45661dd3879556861ba.png 404 from 192.168.0.115 in 0.002263s
+2025-11-04 20:19:10,530 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/7d233b532416343afd20.png 404 from 192.168.0.115 in 0.008114s
+2025-11-04 20:19:10,533 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/default.png 404 from 192.168.0.115 in 0.007940s
+2025-11-04 20:19:10,536 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/da038178c182833d0fa9.png 404 from 192.168.0.115 in 0.007799s
+2025-11-04 20:19:10,538 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/3a8703dcf3595b0be62c.png 404 from 192.168.0.115 in 0.005373s
+2025-11-04 20:19:20,912 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/d45661dd3879556861ba.png 404 from 192.168.0.115 in 0.003486s
+2025-11-04 20:19:20,916 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/default.png 404 from 192.168.0.115 in 0.004240s
+2025-11-04 20:19:20,916 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/da038178c182833d0fa9.png 404 from 192.168.0.115 in 0.004394s
+2025-11-04 20:19:20,917 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/7d233b532416343afd20.png 404 from 192.168.0.115 in 0.002658s
+2025-11-04 20:19:20,918 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /app/photo/player/3a8703dcf3595b0be62c.png 404 from 192.168.0.115 in 0.002573s
+2025-11-04 20:19:48,714 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.115 in 0.028923s
+2025-11-04 20:19:48,716 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.034346s
+2025-11-04 20:21:40,343 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.012288s
+2025-11-04 20:21:40,398 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.034488s
+2025-11-04 20:21:40,402 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.044829s
+2025-11-04 20:21:40,411 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.007646s
+2025-11-04 20:21:40,412 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.043918s
+2025-11-04 20:21:40,417 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.034490s
+2025-11-04 20:21:40,418 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.011091s
+2025-11-04 20:21:40,425 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.049118s
+2025-11-04 20:21:40,428 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.040091s
+2025-11-04 20:21:42,081 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.012144s
+2025-11-04 20:21:42,128 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.028600s
+2025-11-04 20:21:42,128 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.034369s
+2025-11-04 20:21:42,129 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.025118s
+2025-11-04 20:21:42,135 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.030470s
+2025-11-04 20:21:42,144 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.039527s
+2025-11-04 20:21:42,145 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.041085s
+2025-11-04 20:21:42,148 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.008532s
+2025-11-04 20:21:42,149 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.006121s
+2025-11-04 20:21:42,177 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.009820s
+2025-11-04 20:22:20,169 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/teams 405 from 192.168.0.115 in 0.001435s
+2025-11-04 20:22:22,258 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.047444s
+2025-11-04 20:22:22,297 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.026096s
+2025-11-04 20:22:22,304 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.025595s
+2025-11-04 20:22:22,308 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.019146s
+2025-11-04 20:22:22,310 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.017200s
+2025-11-04 20:22:22,317 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.013503s
+2025-11-04 20:22:22,321 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.036825s
+2025-11-04 20:22:22,322 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.026503s
+2025-11-04 20:22:22,323 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.010394s
+2025-11-04 20:22:22,344 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.007280s
+2025-11-04 20:26:52,770 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/tournaments/3/overview 200 from 192.168.0.115 in 0.010502s
+2025-11-04 20:29:42,380 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.043168s
+2025-11-04 20:29:42,452 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.093818s
+2025-11-04 20:29:42,489 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.022801s
+2025-11-04 20:29:42,493 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.029879s
+2025-11-04 20:29:42,497 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.024576s
+2025-11-04 20:29:42,498 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.029050s
+2025-11-04 20:29:42,523 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.039088s
+2025-11-04 20:29:42,524 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.053757s
+2025-11-04 20:29:42,525 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.017688s
+2025-11-04 20:29:42,530 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.029793s
+2025-11-04 20:29:57,910 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.013201s
+2025-11-04 20:30:47,870 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.002189s
+2025-11-04 20:30:50,745 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.010125s
+2025-11-04 20:30:52,177 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.008974s
+2025-11-04 20:30:53,635 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.032285s
+2025-11-04 20:35:53,992 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:35:57,567 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:35:57,567 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:35:57,603 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:35:57,604 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:35:57
+2025-11-04 20:35:57,604 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:36:00,579 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:36:00,579 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:36:00,639 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:36:00,640 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:36:00
+2025-11-04 20:36:00,640 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:36:03,813 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:36:03,813 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:36:03,845 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:36:03,845 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:36:03
+2025-11-04 20:36:03,845 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:36:37,424 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/upload/player/profile 200 from 192.168.0.117 in 0.190704s
+2025-11-04 20:37:05,301 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profile/b9e05ffd1870f52d25b8.png 200 from 192.168.0.117 in 0.009105s
+2025-11-04 20:37:21,385 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.102451s
+2025-11-04 20:37:21,403 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.111873s
+2025-11-04 20:37:21,412 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.011304s
+2025-11-04 20:37:21,433 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.027028s
+2025-11-04 20:37:21,450 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.023415s
+2025-11-04 20:37:21,451 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.043004s
+2025-11-04 20:37:21,459 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.043245s
+2025-11-04 20:37:21,472 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.033201s
+2025-11-04 20:37:21,472 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.060891s
+2025-11-04 20:37:21,482 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.064849s
+2025-11-04 20:37:21,515 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.032654s
+2025-11-04 20:37:21,531 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.045403s
+2025-11-04 20:37:21,553 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.055744s
+2025-11-04 20:37:21,554 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.068310s
+2025-11-04 20:37:21,554 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.065992s
+2025-11-04 20:37:21,560 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/2/player-count 200 from 192.168.0.115 in 0.005723s
+2025-11-04 20:37:21,580 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/1/player-count 200 from 192.168.0.115 in 0.030764s
+2025-11-04 20:37:21,606 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.016746s
+2025-11-04 20:37:21,619 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.027793s
+2025-11-04 20:37:21,621 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/3/player-count 200 from 192.168.0.115 in 0.030025s
+2025-11-04 20:37:21,623 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.031525s
+2025-11-04 20:37:21,624 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.024576s
+2025-11-04 20:37:21,625 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.033933s
+2025-11-04 20:37:21,631 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/4/player-count 200 from 192.168.0.115 in 0.011745s
+2025-11-04 20:37:21,646 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/5/player-count 200 from 192.168.0.115 in 0.005656s
+2025-11-04 20:37:41,391 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.024329s
+2025-11-04 20:37:41,394 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.029244s
+2025-11-04 20:37:41,419 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.017901s
+2025-11-04 20:37:41,459 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.031942s
+2025-11-04 20:37:41,470 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.055535s
+2025-11-04 20:37:41,483 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.075911s
+2025-11-04 20:37:41,488 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.069311s
+2025-11-04 20:37:41,491 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.066959s
+2025-11-04 20:37:41,499 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.023162s
+2025-11-04 20:37:41,503 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.068530s
+2025-11-04 20:37:41,515 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.019390s
+2025-11-04 20:37:41,520 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.035897s
+2025-11-04 20:37:41,524 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.019009s
+2025-11-04 20:37:41,528 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.018833s
+2025-11-04 20:37:41,540 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.042043s
+2025-11-04 20:37:41,568 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.033910s
+2025-11-04 20:37:41,568 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.034539s
+2025-11-04 20:37:41,568 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.037772s
+2025-11-04 20:37:41,572 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.032233s
+2025-11-04 20:37:41,596 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/1/player-count 200 from 192.168.0.115 in 0.039390s
+2025-11-04 20:37:41,611 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/2/player-count 200 from 192.168.0.115 in 0.028831s
+2025-11-04 20:37:41,611 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/3/player-count 200 from 192.168.0.115 in 0.027130s
+2025-11-04 20:37:41,612 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/4/player-count 200 from 192.168.0.115 in 0.027317s
+2025-11-04 20:37:41,612 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/5/player-count 200 from 192.168.0.115 in 0.027283s
+2025-11-04 20:37:41,614 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.080964s
+2025-11-04 20:37:53,076 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:37:56,448 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:37:56,448 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:37:56,478 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:37:56,478 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:37:56
+2025-11-04 20:37:56,478 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:06,859 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:38:09,719 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:09,719 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:09,749 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:09,749 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:09
+2025-11-04 20:38:09,749 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:12,939 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:12,939 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:12,985 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:12,985 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:12
+2025-11-04 20:38:12,985 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:15,957 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:15,957 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:15,993 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:15,993 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:15
+2025-11-04 20:38:15,993 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:18,955 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:18,955 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:18,986 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:18,986 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:18
+2025-11-04 20:38:18,986 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:21,502 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-04 20:38:25,397 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:25,397 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:25,433 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:25,433 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:25
+2025-11-04 20:38:25,433 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:28,327 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:28,328 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:28,361 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:28,361 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:28
+2025-11-04 20:38:28,361 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:31,211 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:31,211 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:31,246 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:31,246 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:31
+2025-11-04 20:38:31,246 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:34,100 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-04 20:38:34,100 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-04 20:38:34,136 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-04 20:38:34,136 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 04/11/2025, 14:38:34
+2025-11-04 20:38:34,136 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-04 20:38:45,275 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/upload/player/profile 200 from 192.168.0.117 in 0.087664s
+2025-11-04 20:38:59,807 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profile/d328a98494e539db7ab3.png 200 from 192.168.0.117 in 0.009573s
+2025-11-04 20:39:09,035 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/teams 405 from 192.168.0.115 in 0.002564s
+2025-11-04 20:39:13,427 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/teams 405 from 192.168.0.115 in 0.004384s
+2025-11-04 20:39:13,450 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profile/da038178c182833d0fa9.png 200 from 192.168.0.115 in 0.017470s
+2025-11-04 20:39:13,498 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profiles 200 from 192.168.0.115 in 0.059578s
+2025-11-04 20:39:13,557 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profile/d328a98494e539db7ab3.png 200 from 192.168.0.115 in 0.000844s
+2025-11-04 20:39:16,768 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.115 in 0.068414s
+2025-11-04 20:39:16,876 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/8/teams 200 from 192.168.0.115 in 0.090110s
+2025-11-04 20:39:16,901 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/2/teams 200 from 192.168.0.115 in 0.015873s
+2025-11-04 20:39:16,910 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/7/teams 200 from 192.168.0.115 in 0.117603s
+2025-11-04 20:39:16,911 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/6/teams 200 from 192.168.0.115 in 0.106696s
+2025-11-04 20:39:16,922 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/4/teams 200 from 192.168.0.115 in 0.081692s
+2025-11-04 20:39:16,926 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.112928s
+2025-11-04 20:39:16,930 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.105270s
+2025-11-04 20:39:16,938 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.030173s
+2025-11-04 20:39:16,957 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.016051s
+2025-11-04 20:39:16,982 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.039661s
+2025-11-04 20:39:16,998 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/1/player-count 200 from 192.168.0.115 in 0.045918s
+2025-11-04 20:39:16,999 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/3/player-count 200 from 192.168.0.115 in 0.011220s
+2025-11-04 20:39:17,008 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/2/player-count 200 from 192.168.0.115 in 0.047414s
+2025-11-04 20:39:17,013 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.061126s
+2025-11-04 20:39:17,020 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.068120s
+2025-11-04 20:39:17,023 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/4/player-count 200 from 192.168.0.115 in 0.018625s
+2025-11-04 20:39:17,024 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/5/player-count 200 from 192.168.0.115 in 0.016901s
+2025-11-04 20:39:17,025 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.078915s
+2025-11-04 20:39:17,069 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.009728s
+2025-11-04 20:39:17,089 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.013021s
+2025-11-04 20:39:17,091 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.013764s
+2025-11-04 20:39:17,098 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.017630s
+2025-11-04 20:39:17,098 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.018523s
+2025-11-04 20:39:17,099 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.018960s
+2025-11-04 20:39:22,653 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/1/teams 200 from 192.168.0.115 in 0.011034s
+2025-11-04 20:39:24,813 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.115 in 0.024731s
+2025-11-04 20:39:24,841 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/1/player-count 200 from 192.168.0.115 in 0.016537s
+2025-11-04 20:39:24,849 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/2/player-count 200 from 192.168.0.115 in 0.020381s
+2025-11-04 20:39:24,850 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/3/player-count 200 from 192.168.0.115 in 0.019320s
+2025-11-04 20:39:24,855 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/5/player-count 200 from 192.168.0.115 in 0.017332s
+2025-11-04 20:39:24,856 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/4/player-count 200 from 192.168.0.115 in 0.021394s
+2025-11-04 20:39:31,379 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/5/teams 200 from 192.168.0.115 in 0.034986s
+2025-11-04 20:39:31,454 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/8/player-count 200 from 192.168.0.115 in 0.052986s
+2025-11-04 20:39:31,458 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/6/player-count 200 from 192.168.0.115 in 0.063882s
+2025-11-04 20:39:31,461 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/7/player-count 200 from 192.168.0.115 in 0.062720s
+2025-11-04 20:39:31,466 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/9/player-count 200 from 192.168.0.115 in 0.059595s
+2025-11-04 20:39:31,468 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/teams/10/player-count 200 from 192.168.0.115 in 0.057299s
+2025-11-04 20:40:35,178 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/upload/player/profile 200 from 192.168.0.109 in 0.035395s
+2025-11-04 20:40:54,610 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/player/profile/cd782ab2695f5a9c5c04.png 200 from 192.168.0.109 in 0.004436s
+2025-11-04 20:46:10,361 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.045968s
+2025-11-04 20:46:10,366 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.037994s
+2025-11-04 20:46:10,368 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.048992s
+2025-11-04 20:46:10,371 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/1/player-distribution 200 from 192.168.0.109 in 0.043324s
+2025-11-04 20:46:10,373 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.053890s
+2025-11-04 20:46:10,377 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.064768s
+2025-11-04 20:46:10,393 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004919s
+2025-11-04 20:46:10,399 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.005738s
+2025-11-04 20:46:10,408 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/dashboard/teams/player-distribution 404 from 192.168.0.109 in 0.000334s
+2025-11-04 20:46:15,262 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.046407s
+2025-11-04 20:46:15,264 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/1/player-distribution 200 from 192.168.0.109 in 0.047541s
+2025-11-04 20:46:15,265 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.048332s
+2025-11-04 20:46:15,266 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.034653s
+2025-11-04 20:46:15,271 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.054904s
+2025-11-04 20:46:15,273 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.058066s
+2025-11-04 20:46:15,284 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/dashboard/teams/player-distribution 404 from 192.168.0.109 in 0.000411s
+2025-11-04 20:46:15,291 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.006102s
+2025-11-04 20:46:15,291 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.009024s
+2025-11-04 20:47:39,321 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.031957s
+2025-11-04 20:47:39,333 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.039574s
+2025-11-04 20:47:39,334 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/1/player-distribution 200 from 192.168.0.109 in 0.027668s
+2025-11-04 20:47:39,336 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.025087s
+2025-11-04 20:47:39,337 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.035925s
+2025-11-04 20:47:39,340 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.043544s
+2025-11-04 20:47:39,357 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:92 - GET /api/v1/admin/dashboard/teams/player-distribution 404 from 192.168.0.109 in 0.000412s
+2025-11-04 20:47:39,360 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.005037s
+2025-11-04 20:47:39,366 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.006477s
+2025-11-04 20:48:06,128 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.009656s
+2025-11-04 20:48:14,533 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.018708s
+2025-11-04 20:48:14,534 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.017154s
+2025-11-04 20:48:14,538 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.024704s
+2025-11-04 20:48:14,540 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.025882s
+2025-11-04 20:48:14,548 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004716s
+2025-11-04 20:48:14,557 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.007807s
+2025-11-04 20:48:36,069 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.044625s
+2025-11-04 20:48:57,012 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /docs 200 from 192.168.0.109 in 0.001151s
+2025-11-04 20:48:57,323 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /openapi.json 200 from 192.168.0.109 in 0.110502s
+2025-11-04 20:49:03,678 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - POST /api/v1/token 200 from 192.168.0.109 in 0.114972s
+2025-11-04 20:49:10,842 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.009499s
+2025-11-04 20:53:53,405 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /docs 200 from 192.168.0.109 in 0.002407s
+2025-11-04 20:53:53,576 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /openapi.json 200 from 192.168.0.109 in 0.003968s
+2025-11-04 20:54:29,594 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.033834s
+2025-11-04 20:57:52,595 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.044104s
+2025-11-04 20:57:52,595 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.039958s
+2025-11-04 20:57:52,608 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.053725s
+2025-11-04 20:57:52,608 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.053509s
+2025-11-04 20:57:52,610 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.062902s
+2025-11-04 20:57:52,647 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.003867s
+2025-11-04 20:57:52,657 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.007533s
+2025-11-04 20:57:56,549 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.035479s
+2025-11-04 20:57:56,556 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.028941s
+2025-11-04 20:57:56,558 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.043204s
+2025-11-04 20:57:56,561 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.046353s
+2025-11-04 20:57:56,566 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.052642s
+2025-11-04 20:57:56,579 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004539s
+2025-11-04 20:57:56,583 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.005545s
+2025-11-04 20:58:44,600 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.049891s
+2025-11-04 20:58:44,602 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.044235s
+2025-11-04 20:58:44,603 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.038126s
+2025-11-04 20:58:44,609 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.056283s
+2025-11-04 20:58:44,613 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.066783s
+2025-11-04 20:58:44,639 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.005331s
+2025-11-04 20:58:44,644 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.008069s
+2025-11-04 20:58:57,475 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.020144s
+2025-11-04 21:00:48,684 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.029444s
+2025-11-04 21:00:48,694 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.036353s
+2025-11-04 21:00:48,700 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.026671s
+2025-11-04 21:00:48,700 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.031843s
+2025-11-04 21:00:48,704 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.041330s
+2025-11-04 21:00:48,833 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.027472s
+2025-11-04 21:00:48,842 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.014354s
+2025-11-04 21:00:52,586 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.043248s
+2025-11-04 21:00:52,588 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.044083s
+2025-11-04 21:00:52,590 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.033468s
+2025-11-04 21:00:52,591 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.046472s
+2025-11-04 21:00:52,597 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.052857s
+2025-11-04 21:00:52,633 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.007263s
+2025-11-04 21:00:52,633 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.009282s
+2025-11-04 21:01:39,581 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.033704s
+2025-11-04 21:01:39,593 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.039180s
+2025-11-04 21:01:39,598 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.030324s
+2025-11-04 21:01:39,598 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.037354s
+2025-11-04 21:01:39,602 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.045267s
+2025-11-04 21:01:39,628 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004363s
+2025-11-04 21:01:39,633 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.006541s
+2025-11-04 21:01:43,982 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.035157s
+2025-11-04 21:01:48,054 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.011288s
+2025-11-04 21:01:53,923 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.040607s
+2025-11-04 21:01:57,800 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.028865s
+2025-11-04 21:01:57,806 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.021111s
+2025-11-04 21:01:57,807 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.027996s
+2025-11-04 21:01:57,811 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.035449s
+2025-11-04 21:01:57,816 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.005675s
+2025-11-04 21:01:57,827 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.005029s
+2025-11-04 21:02:07,951 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.038854s
+2025-11-04 21:07:51,718 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.036455s
+2025-11-04 21:07:51,723 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.032494s
+2025-11-04 21:07:51,724 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.043386s
+2025-11-04 21:07:51,725 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.028101s
+2025-11-04 21:07:51,731 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.048591s
+2025-11-04 21:07:51,820 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.016830s
+2025-11-04 21:07:51,853 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.021600s
+2025-11-04 21:07:53,542 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.014264s
+2025-11-04 21:07:53,545 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.015465s
+2025-11-04 21:07:53,546 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.019314s
+2025-11-04 21:07:53,549 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.019426s
+2025-11-04 21:07:53,550 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.020021s
+2025-11-04 21:07:53,575 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004106s
+2025-11-04 21:07:53,581 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.004414s
+2025-11-04 21:08:38,483 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.014930s
+2025-11-04 21:08:38,485 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.015946s
+2025-11-04 21:08:38,487 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.014972s
+2025-11-04 21:08:38,489 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.018429s
+2025-11-04 21:08:38,493 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.023360s
+2025-11-04 21:08:38,553 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.023292s
+2025-11-04 21:08:38,582 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.057056s
+2025-11-04 21:09:20,292 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.030411s
+2025-11-04 21:09:26,460 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.066248s
+2025-11-04 21:09:34,115 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.031855s
+2025-11-04 21:09:34,126 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.049742s
+2025-11-04 21:09:34,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.063300s
+2025-11-04 21:09:34,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.059689s
+2025-11-04 21:09:34,169 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.009243s
+2025-11-04 21:09:34,170 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.008381s
+2025-11-04 21:09:43,337 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.047237s
+2025-11-04 21:12:21,542 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.026284s
+2025-11-04 21:12:21,543 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.021136s
+2025-11-04 21:12:21,552 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.041248s
+2025-11-04 21:12:21,557 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.055241s
+2025-11-04 21:12:21,562 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.055866s
+2025-11-04 21:12:21,578 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.005692s
+2025-11-04 21:12:21,621 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.005489s
+2025-11-04 21:12:49,579 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.020601s
+2025-11-04 21:12:49,582 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.019343s
+2025-11-04 21:12:49,590 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.032517s
+2025-11-04 21:12:49,590 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.030358s
+2025-11-04 21:12:49,595 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.033193s
+2025-11-04 21:12:49,613 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.005691s
+2025-11-04 21:12:49,618 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.006100s
+2025-11-04 21:13:06,488 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.026912s
+2025-11-04 21:13:06,492 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.017374s
+2025-11-04 21:13:06,499 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.027439s
+2025-11-04 21:13:06,501 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.045192s
+2025-11-04 21:13:06,503 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.038351s
+2025-11-04 21:13:06,515 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004632s
+2025-11-04 21:13:06,521 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.007559s
+2025-11-04 21:13:40,386 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/fetch 200 from 192.168.0.109 in 0.036984s
+2025-11-04 21:13:43,867 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.038772s
+2025-11-04 21:13:43,874 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.037297s
+2025-11-04 21:13:43,875 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/dashboard/teams/3/player-distribution 200 from 192.168.0.109 in 0.032781s
+2025-11-04 21:13:43,879 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.045945s
+2025-11-04 21:13:43,884 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/auction/tournaments/3/players 200 from 192.168.0.109 in 0.004817s
+2025-11-04 21:13:43,890 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/adminall/players 200 from 192.168.0.109 in 0.005211s
+2025-11-04 21:14:02,706 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:94 - GET /api/v1/admin/tournaments/3/teams 200 from 192.168.0.109 in 0.032374s
+2025-11-04 21:14:02,731 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.015613s
+2025-11-04 21:14:02,753 - my_fastapi_app - ERROR - /home/yasin/all_program/cpl/app/middleware.py:90 - PUT /api/v1/admin/auction/assign-player/5 500 from 192.168.0.109 in 0.013588s

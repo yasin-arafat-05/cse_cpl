@@ -68,6 +68,9 @@ def register_all_errors(app:FastAPI):
         }
     ))
     
+    @app.get("/")
+    async def test_log():
+        return "Root Endpoint is working fine from: 😛 Yasin-Arafat 😆:)"
     
     app.add_exception_handler(ExpireToken,create_exception_handler(
         status_code=status.HTTP_400_BAD_REQUEST,
@@ -116,6 +119,9 @@ def register_all_errors(app:FastAPI):
         )
 
     app.add_exception_handler(Exception, generic_exception_handler)
+    
+    
+    
 
 
     

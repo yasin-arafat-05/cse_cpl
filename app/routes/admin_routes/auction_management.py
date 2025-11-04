@@ -137,7 +137,7 @@ async def assign_player_to_team(auction_player_id: int,auction_update: schemas.A
             raise HTTPException(status_code=400, detail="Team already has maximum 30 players")
         auction_player.sold_to_team_id = auction_update.sold_to_team_id
         auction_player.sold_price = auction_update.sold_price
-        team.conis -= auction_update.sold_price
+        team.current_conis -= auction_update.sold_price
         await sess.commit()
         player_team_result = await sess.execute(
             select(model.Player, model.Team)

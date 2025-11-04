@@ -4,6 +4,8 @@ from app.routes import boardcast
 from app.lifespan import lifespan
 from app.routes import profiles
 from app.routes import player_image
+from app.routes import password_reset
+from app.logger import router as log_router
 from app.middleware import register_middleware
 from app.routes.admin_routes import all_players
 from app.routes.admin_routes import player_info_up
@@ -14,7 +16,6 @@ from app.routes import login,signup,current_user,admin
 from app.routes.admin_routes import auction_management
 from app.routes.admin_routes import tounament_management
 from app.routes.admin_routes import tournament_photo_gallary
-from app.logger import router as log_router
 
 
 version = "v1"
@@ -32,6 +33,7 @@ register_middleware(app)
 # ============== ALL THE ENDPOINT =================
 app.include_router(login.router,prefix=f"/api/{version}")
 app.include_router(signup.router,prefix=f"/api/{version}")
+app.include_router(password_reset.router,prefix=f"/api/{version}")
 
 app.include_router(current_user.router,prefix=f"/api/{version}")
 app.include_router(profiles.router,prefix=f"/api/{version}")
@@ -54,9 +56,6 @@ app.include_router(admin.router,prefix=f"/api/{version}/admin")
 app.include_router(log_router, prefix=f"/api/{version}/admin")
 
 
-@app.get("/")
-async def test_log():
-    return "Root Endpoint is working fine from: 😛 Yasin-Arafat 😆:)"
-    
+
     
     
