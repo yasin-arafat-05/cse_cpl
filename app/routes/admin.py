@@ -112,7 +112,8 @@ async def get_team_player_distribution(tournament_id: int,sess : Annotated[Async
                 select(
                     model.Team.id,
                     model.Team.team_name,
-                    model.Team.conis,
+                    model.Team.current_conis,
+                    model.Team.total_coins_used,
                     func.count(model.AuctionPlayer.id).label('player_count')
                 )
                 .outerjoin(
@@ -123,19 +124,20 @@ async def get_team_player_distribution(tournament_id: int,sess : Annotated[Async
                     )
                 )
                 .filter(model.Team.tournament_id == tournament_id)
-                .group_by(model.Team.id, model.Team.team_name,model.Team.conis)
+                .group_by(model.Team.id, model.Team.team_name,model.Team.current_conis,model.Team.total_coins_used)
             )
             team_distributions = result.all()
             return [
                 {
                     "team_id": team_id,
                     "team_name": team_name,
-                    "team_coin" : coins,
+                    "current_coins" : current_conis,
+                    "total_coins" : total_coins,
                     "player_count": player_count,
                     "max_players": 30,
                     "available_slots": 30 - player_count
                 }
-                for team_id, team_name, coins ,player_count in team_distributions
+                for team_id, team_name, current_conis,total_coins, player_count in team_distributions
             ]
         except Exception:
             raise HTTPException(status_code=500, detail="Failed to fetch player distribution")
