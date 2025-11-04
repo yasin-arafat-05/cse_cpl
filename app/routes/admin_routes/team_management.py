@@ -65,7 +65,7 @@ async def get_teams_with_players(tournament_id: int,sess: Annotated[AsyncSession
             )
             teams = result.scalars().all()
             if not teams:
-                raise HTTPException(status_code=404, detail="No teams found for this tournament")
+                return []
             response = []
             for team in teams:
                 ap_result = await sess.execute(

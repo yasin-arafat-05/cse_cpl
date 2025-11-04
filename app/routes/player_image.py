@@ -39,15 +39,15 @@ def background_processing(file_content, output_path, category):
     no_bg = remove(data=input_image, session=session)
     
     # Resize the no_bg image to fit exactly the target area (500x680)
-    target_size = (500, 680) 
+    target_size = (1563, 2125) 
     no_bg = no_bg.resize(target_size, Image.Resampling.LANCZOS) 
     
-    # 2:  background ( 1080x1080)
+    # 2:  background (3375,3375,3)
     bg_path = os.path.join("app", "photo", "backgrounds", f"{category}.png")
     background = Image.open(bg_path).convert("RGBA")
     
     # 3: Paste the no-bg image on background 
-    position = (300, 400) 
+    position = (938, 1250)
     background.paste(no_bg, position, no_bg)
     
     # 4: Resize final image and save

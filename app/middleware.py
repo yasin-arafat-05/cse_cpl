@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # desiable fast api resonses:
 logger = logging.getLogger("uvicorn.access")
 logger.disabled = True 
-app_logger = logging.getLogger("cpl_logger.py")
+app_logger = logging.getLogger("my_fastapi_app")
 
 
 class FixedWindowRateLimiter:
