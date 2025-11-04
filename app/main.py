@@ -14,6 +14,8 @@ from app.routes import login,signup,current_user,admin
 from app.routes.admin_routes import auction_management
 from app.routes.admin_routes import tounament_management
 from app.routes.admin_routes import tournament_photo_gallary
+from app.logger import router as log_router
+
 
 version = "v1"
 
@@ -49,6 +51,7 @@ app.include_router(player_info_up.router,prefix=f"/api/{version}/admin")
 
 
 app.include_router(admin.router,prefix=f"/api/{version}/admin")
+app.include_router(log_router, prefix=f"/api/{version}/admin")
 
 
 @app.get("/")

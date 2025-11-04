@@ -83,7 +83,8 @@ async def currentUser(user = Depends(get_current_admin_user)):
     #print(user)
     user = USERME(
         email = user.email,
-        id= user.id
+        id= user.id,
+         category = user.category
     )
     return user 
 
