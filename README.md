@@ -54,3 +54,8 @@ MAIL_FROM_NAME=""
     - **Example:** [bowler.jpg or bowler.png or bowler.jpeg]
     
 
+```python 
+python -m venv venv  
+.\venv\Scripts\activate
+pip install 
+```
