@@ -34,11 +34,16 @@ class Setting(BaseSettings):
     model_config = SettingsConfigDict(env_file="app/.env",extra='ignore')
 
 
+import urllib.parse
+
 CONFIG = Setting()
 
+db_password = urllib.parse.quote_plus(CONFIG.DB_PASSWORD)
+
 CONFIG.DATABASE_URL = (
-    f"postgresql+asyncpg://{CONFIG.DB_ROLE_NAME}:{CONFIG.DB_PASSWORD}"
-    f"@{CONFIG.DB_HOST}:{CONFIG.DB_PORT}/{CONFIG.DATABASE}"
+    f"mssql+aioodbc://{CONFIG.DB_ROLE_NAME}:{db_password}@"
+    f"{CONFIG.DB_HOST}:{CONFIG.DB_PORT}/{CONFIG.DATABASE}?"
+    f"driver=ODBC+Driver+17+for+SQL+Server&TrustServerCertificate=no"
 )
 
 
