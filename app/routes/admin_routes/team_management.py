@@ -137,7 +137,7 @@ async def get_players_by_team_and_tournament(team_id: int, tournament_id: int,se
 
 # =============================== Add Coin Team ================================================
 @router.post('/update/team/coin/{tounament_id}/{team_id}')
-async def update_team_coin(tounament_id,team_id,new_coin,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
+async def update_team_coin(tounament_id:int,team_id:int,new_coin:int,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
         try:
             result = await sess.execute(
                 select(model.Team).filter(
@@ -150,7 +150,7 @@ async def update_team_coin(tounament_id,team_id,new_coin,sess: Annotated[AsyncSe
             team = result.scalar_one_or_none()
             if not team:
                 raise HTTPException(status_code=404, detail="No teams found for this tournament")
-            team.conis += new_coin
+            team.current_conis += new_coin
             team.total_coins_used += new_coin
             await sess.commit()
             return {f"coin update successfull"}

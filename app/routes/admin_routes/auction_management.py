@@ -61,6 +61,7 @@ async def get_auction_players(tournament_id: int,sess: Annotated[AsyncSession, D
             .filter(model.AuctionPlayer.tournament_id == tournament_id)
         )
         auction_data = result.all()
+        print(auction_data)
         return [
             schemas.AuctionPlayerResponse(
                 id=ap.id,
@@ -72,6 +73,7 @@ async def get_auction_players(tournament_id: int,sess: Annotated[AsyncSession, D
                 sold_price=ap.sold_price if ap else None,
                 sold_to_team_id=ap.sold_to_team_id if ap else None,
                 player_name=p.name if p else None,
+                image_path = p.photo_url if p else None,
                 team_name=t.team_name if t else None
             ) for ap, p, t in auction_data
         ]

@@ -126,6 +126,7 @@ class AuctionPlayerResponse(BaseModel):
     sold_price: Optional[float] = None 
     sold_to_team_id: Optional[int] = None 
     player_name: str 
+    image_path : Optional[str] = None 
     team_name: Optional[str] = None
 
 class MatchCreate(BaseModel):
