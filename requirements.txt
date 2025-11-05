@@ -1,0 +1,16 @@
+argon2-cffi
+asyncpg
+email-validator
+fastapi
+fastapi-mail
+multipart
+pillow
+psycopg2
+pydantic
+pydantic-settings
+PyJWT
+rembg
+SQLAlchemy
+uvicorn
+uvloop
+websockets
