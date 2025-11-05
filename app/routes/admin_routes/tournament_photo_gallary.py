@@ -13,60 +13,76 @@ from fastapi import HTTPException,status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.routes.current_user import get_current_user
 from fastapi import APIRouter,File,UploadFile,Depends
+from app.routes.current_user import get_current_admin_user
 
 
 router = APIRouter(tags=['Tounament-Image-Upload'])
 
 
 #---------------------------------------Profile Picture Uplod---------------------------------------
-'''
-Mount is going to tell the fastapi that in this directory will save static files likes images.
-'''
+async def process_tournament_image(file_content: bytes, image_dir: str, tounament_id: int, sess: AsyncSession):
+    try:
+        # Save image
+        input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
+        input_image.save(image_dir)
+
+        # Save image info in DB
+        image_info = model.TounamnetImage(
+            tournament_id=tounament_id,
+            photo_url=image_dir
+        )
+        sess.add(image_info)
+        await sess.commit()
+        await sess.refresh(image_info)
+    except Exception as e:
+        print("Background task error:", e)
+
+
+#'''
+#Mount is going to tell the fastapi that in this directory will save static files likes images.
+#'''
 router.mount("/photo", StaticFiles(directory="app/photo"), name="photo")
 @router.post("/upload/tounament/image")
-async def tournament_image_upload(tounament_id:int, sess: Annotated[AsyncSession, Depends(get_db)], file: UploadFile = File(...), bgtask : BackgroundTasks = None, user = Depends(get_current_user)):
-  try:
-    filename = file.filename
-    ext = filename.split('.')[-1].lower()
-    if ext not in ['png', 'jpg', 'jpeg']:
-        return {"status": "File extension should be .png, .jpg or .jpeg"}
-    token_name = secrets.token_hex(10) + '.png'
-    
-    tournament_result = await sess.execute(
+async def tournament_image_upload(
+    tounament_id: int,
+    file: UploadFile = File(...),
+    sess: Annotated[AsyncSession, Depends(get_db)] = None,
+    bgtask: BackgroundTasks = None,
+    user = Depends(get_current_admin_user)
+):
+    try:
+        filename = file.filename
+        ext = filename.split('.')[-1].lower()
+        if ext not in ['png', 'jpg', 'jpeg']:
+            return {"status": "File extension should be .png, .jpg or .jpeg"}
+
+        token_name = secrets.token_hex(10) + ".png"
+        image_dir = os.path.join("app", "photo", "tounaments", f"{token_name}")
+
+        # Check if tournament exists
+        tournament_result = await sess.execute(
             select(model.Tournament).filter(model.Tournament.id == tounament_id)
         )
-    tournament = tournament_result.scalar_one_or_none()
-    if not tournament:
-            raise HTTPException(status_code=404, detail="Tournament not found-> upload tounament image")
-    
-    image_dir = os.path.join("app","photo","tounaments",f"{token_name}")
+        tournament = tournament_result.scalar_one_or_none()
+        if not tournament:
+            raise HTTPException(status_code=404, detail="Tournament not found")
+        total_image = await get_tounament_image_files(tounament_id=tounament_id, sess=sess)
+        if len(total_image) >= 10:
+            raise HTTPException(status_code=400, detail="Can't upload more than ten images")
+        file_content = await file.read()
+        await file.close()
 
-    total_image= await get_tounament_image_files(tounament_id)
-    total_image_len = len(total_image)
-        
-    if total_image_len>10: 
-             raise HTTPException(status_code=404, detail="Can't upload more than ten image")
-        
-    # user input image:
-    file_content = await file.read()
-    input_image = Image.open(io.BytesIO(file_content)).convert("RGBA")
-    input_image.save(image_dir)
-        
-    image_info = model.TounamnetImage(
-            tournament_id = tounament_id,
-            photo_url = image_dir
-    )
-        
-    sess.add(image_info)
-    await sess.commit()
-    await sess.refresh(image_info)
-    await file.close()
-    return {"status": "success", "filename": token_name}
-  except Exception as e:
-      print(e)
-      raise HTTPException(status_code=404, detail="Can't upload tounament image brother")
+        # Add background task for processing & saving
+        bgtask.add_task(process_tournament_image, file_content, image_dir, tounament_id, sess)
+
+        return {"status": "Upload started in background", "filename": token_name}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail="Can't upload tournament image brother")
 
 
 #--------------------------get the image-------------------------

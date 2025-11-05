@@ -22,16 +22,19 @@ async def get_available_players_for_auction(sess: Annotated[AsyncSession, Depend
             select(model.Player)
         )
         players = result.scalars().all()
-        return [
-            {
+        total_players = len(players)
+        return {
+                "total_players": total_players,
+                "all_player_list": [
+                {
                 "id": p.id,
                 "name": p.name,
                 "email": p.email,
                 "category": p.category.value,
                 "photo_url": p.photo_url
             }
-            for p in players
-        ]
+            for p in players]
+        }
     except Exception:
         from fastapi import HTTPException
         raise HTTPException(status_code=500, detail="Failed to fetch players")

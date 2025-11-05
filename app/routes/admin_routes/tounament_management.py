@@ -83,3 +83,23 @@ async def update_tournament_status(tournament_id: int,new_status: str,sess: Anno
         await sess.rollback()
         raise HTTPException(status_code=500, detail="Failed to update tournament status")
     
+# 4. Delete a tournament:
+@router.delete("/tournaments/{tournament_id}/delete", status_code=status.HTTP_200_OK)
+async def delete_tournament(tournament_id: int,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
+    try:
+        result = await sess.execute(
+            select(model.Tournament).where(model.Tournament.id == tournament_id)
+        )
+        tournament = result.scalar_one_or_none()
+        if not tournament:
+            raise HTTPException(status_code=404, detail="Tournament not found")
+        # Delete the tournament
+        await sess.delete(tournament)
+        await sess.commit()
+        return {"message": f"Tournament '{tournament.name}' deleted successfully"}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        await sess.rollback()
+        raise HTTPException(status_code=500, detail=f"Failed to delete tournament: {str(e)}")

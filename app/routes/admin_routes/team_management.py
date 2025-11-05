@@ -161,6 +161,43 @@ async def update_team_coin(tounament_id:int,team_id:int,new_coin:int,sess: Annot
             raise HTTPException(status_code=500, detail="Failed to update team coin")
         
         
-    
+# 4. =============================== Delete a Team ================================================
+@router.delete("/team/delete/{tournament_id}/{team_id}", status_code=status.HTTP_200_OK)
+async def delete_team(
+    tournament_id: int,
+    team_id: int,
+    sess: Annotated[AsyncSession, Depends(get_db)],
+    current_admin: model.Player = Depends(get_current_admin_user)
+):
+    try:
+        result = await sess.execute(
+            select(model.Team).filter(
+                and_(
+                    model.Team.id == team_id,
+                    model.Team.tournament_id == tournament_id
+                )
+            )
+        )
+        team = result.scalar_one_or_none()
+
+        if not team:
+            raise HTTPException(status_code=404, detail="Team not found for this tournament")
+
+        await sess.execute(
+            model.AuctionPlayer.__table__.delete().where(model.AuctionPlayer.sold_to_team_id == team_id)
+        )
+
+        # Delete the team
+        await sess.delete(team)
+        await sess.commit()
+
+        return {"message": f"Team '{team.team_name}' deleted successfully from tournament {tournament_id}"}
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        await sess.rollback()
+        raise HTTPException(status_code=500, detail=f"Failed to delete team: {str(e)}")
+
 
 
