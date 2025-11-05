@@ -202,7 +202,6 @@ async def get_available_players_for_auction(tournament_id: int,sess: Annotated[A
         
 
 
-
 #2. """Remove a player from auction (if not sold yet)"""
 @router.delete("/auction/remove-player/{auction_player_id}")
 async def remove_player_from_auction(auction_player_id: int,sess: Annotated[AsyncSession, Depends(get_db)],current_admin: model.Player = Depends(get_current_admin_user)):
