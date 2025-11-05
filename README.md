@@ -54,3 +54,10 @@ MAIL_FROM_NAME=""
     - **Example:** [bowler.jpg or bowler.png or bowler.jpeg]
     
 
+```python 
+python -m venv venv  
+.\venv\Scripts\activate
+pip install --upgrade pip 
+pip install -r requirements.txt
+uvicorn app.main:app --host 192.168.0.117  --port 8000 --reload
+```
