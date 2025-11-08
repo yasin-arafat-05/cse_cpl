@@ -2,16 +2,18 @@ import time
 import logging
 import asyncio
 from typing import Dict, Tuple
-from fastapi import FastAPI
-from fastapi import Request
+from starlette.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Request, HTTPException
 
-# desiable fast api resonses:
+
+# ====================== Disable default uvicorn logging ======================
 logger = logging.getLogger("uvicorn.access")
-logger.disabled = True 
+logger.disabled = True
 app_logger = logging.getLogger("my_fastapi_app")
 
 
+# ====================== Fixed Window Rate Limiter ======================
 class FixedWindowRateLimiter:
     def __init__(self, max_requests: int, window_seconds: float = 1.0):
         self.max_requests = max_requests
@@ -36,64 +38,67 @@ class FixedWindowRateLimiter:
                 return False, remaining
 
 
-def register_middleware(app:FastAPI):
+# ====================== Concurrent Upload Limiter ======================
+MAX_CONCURRENT_UPLOADS = 2
+upload_semaphore = asyncio.Semaphore(MAX_CONCURRENT_UPLOADS)
+
+
+# ====================== Middleware Registration ======================
+def register_middleware(app: FastAPI):
     rate_limiter = FixedWindowRateLimiter(max_requests=100, window_seconds=1.0)
 
     @app.middleware("http")
-    async def custom_loggin(req:Request,call_next):
-        brefore_calling = time.time()
+    async def custom_logging(req: Request, call_next):
+        start_time = time.time()
         client_ip = getattr(req.client, "host", "unknown")
         allowlisted_paths = {"/", "/health", "/docs", "/openapi.json"}
-        if req.url.path not in allowlisted_paths:
-            allowed, remaining = await rate_limiter.allow(client_ip)
-            if not allowed:
-                from fastapi.responses import JSONResponse
-                app_logger.warning(f"429 Too Many Requests - {req.method} {req.url.path} from {client_ip}")
-                return JSONResponse(
-                    status_code=429,
-                    content={
-                        "message": "Too Many Requests - rate limit exceeded",
-                        "error_code": "rate_limited",
-                        "limit_per_second": 100
-                    },
-                    headers={
-                        "X-RateLimit-Limit": "100",
-                        "X-RateLimit-Remaining": str(remaining),
-                        "Retry-After": "1"
-                    }
-                )
+
         try:
+            # ---------- Rate limiting check ----------
+            if req.url.path not in allowlisted_paths:
+                allowed, remaining = await rate_limiter.allow(client_ip)
+                if not allowed:
+                    app_logger.warning(f"429 Too Many Requests - {req.method} {req.url.path} from {client_ip}")
+                    return JSONResponse(
+                        status_code=429,
+                        content={
+                            "message": "Too Many Requests - rate limit exceeded",
+                            "error_code": "rate_limited",
+                            "limit_per_second": 100
+                        },
+                        headers={
+                            "X-RateLimit-Limit": "100",
+                            "X-RateLimit-Remaining": str(remaining),
+                            "Retry-After": "1"
+                        }
+                    )
             response = await call_next(req)
+
         except Exception as exc:
-            from fastapi.responses import JSONResponse
             app_logger.exception(f"Unhandled exception for {req.method} {req.url.path} from {client_ip}")
-            response = JSONResponse(
+            return JSONResponse(
                 status_code=500,
                 content={
                     "message": "An unexpected error occurred while processing the request.",
                     "error_code": "internal_server_error"
                 }
             )
-        finally:
-            after_calling = time.time()
-            diff = after_calling-brefore_calling
-            try:
-                status_code = getattr(response, "status_code", "-")
-            except Exception:
-                status_code = "-"
-            log_messages = f"{req.method} {req.url.path} {status_code} from {client_ip} in {diff:6f}s"
-            try:
-                code_int = int(status_code)
-            except Exception:
-                code_int = 0
-            if code_int >= 500:
-                app_logger.error(log_messages)
-            elif code_int >= 400:
-                app_logger.warning(log_messages)
-            else:
-                app_logger.info(log_messages)
+
+        # ---------- Request logging ----------
+        duration = time.time() - start_time
+        status_code = getattr(response, "status_code", "-")
+        log_message = f"{req.method} {req.url.path} {status_code} from {client_ip} in {duration:.6f}s"
+
+        if int(status_code) >= 500:
+            app_logger.error(log_message)
+        elif int(status_code) >= 400:
+            app_logger.warning(log_message)
+        else:
+            app_logger.info(log_message)
+
         return response
-    
+
+    # ---------- Enable CORS ----------
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
@@ -101,5 +106,3 @@ def register_middleware(app:FastAPI):
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    
-    

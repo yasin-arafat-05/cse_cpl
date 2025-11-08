@@ -15,7 +15,7 @@ router = APIRouter(tags=['Admin-Get-All-Player'])
 
 
 # 1. Get all players in our platfrom:
-@router.get("all/players")
+@router.get("/all/players")
 async def get_available_players_for_auction(sess: Annotated[AsyncSession, Depends(get_db)]):
     try:
         result = await sess.execute(

@@ -31,19 +31,35 @@ class Setting(BaseSettings):
     MAIL_SSL_TLS : bool  = True
     USE_CREDENTIALS : bool = True
     VALIDATE_CERTS : bool = True
+    
+    #<----Redis--------->
+    REDIS_HOST:str
+    REDIS_PORT:int 
+    REDIS_PASSWORD:str
+    REDIS_DB:int
+    REDIS_DB_URL:str 
+    
+    
+    
     model_config = SettingsConfigDict(env_file="app/.env",extra='ignore')
 
 
+
 import urllib.parse
-
 CONFIG = Setting()
-
-db_password = urllib.parse.quote_plus(CONFIG.DB_PASSWORD)
+# db_password = urllib.parse.quote_plus(CONFIG.DB_PASSWORD)
+# CONFIG.DATABASE_URL = (
+#     f"mssql+aioodbc://{CONFIG.DB_ROLE_NAME}:{db_password}@"
+#     f"{CONFIG.DB_HOST}:{CONFIG.DB_PORT}/{CONFIG.DATABASE}?"
+#     f"driver=ODBC+Driver+17+for+SQL+Server&TrustServerCertificate=no"
+# )
 
 CONFIG.DATABASE_URL = (
-    f"mssql+aioodbc://{CONFIG.DB_ROLE_NAME}:{db_password}@"
-    f"{CONFIG.DB_HOST}:{CONFIG.DB_PORT}/{CONFIG.DATABASE}?"
-    f"driver=ODBC+Driver+17+for+SQL+Server&TrustServerCertificate=no"
+    f"postgresql+asyncpg://{CONFIG.DB_ROLE_NAME}:{CONFIG.DB_PASSWORD}"
+    f"@{CONFIG.DB_HOST}:{CONFIG.DB_PORT}/{CONFIG.DATABASE}"
 )
 
+CONFIG.REDIS_DB_URL = (
+    f"redis://{CONFIG.REDIS_HOST}:{CONFIG.REDIS_PORT}/{CONFIG.REDIS_DB}"
+)
 

@@ -1,0 +1,74 @@
+2025-11-07 13:25:37,701 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:25:37,701 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:25:37,833 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:25:37,833 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:25:37
+2025-11-07 13:25:37,833 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:26:05,930 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.117 in 0.000788s
+2025-11-07 13:26:11,258 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.117 in 0.001318s
+2025-11-07 13:26:11,759 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.117 in 0.184057s
+2025-11-07 13:26:21,075 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.109 in 0.000255s
+2025-11-07 13:26:21,194 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /favicon.ico 404 from 192.168.0.109 in 0.000380s
+2025-11-07 13:26:21,794 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.100 in 0.000806s
+2025-11-07 13:26:22,099 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /favicon.ico 404 from 192.168.0.100 in 0.002662s
+2025-11-07 13:27:07,574 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.100 in 0.002251s
+2025-11-07 13:27:08,481 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.100 in 0.000925s
+2025-11-07 13:28:00,176 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-07 13:28:05,492 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:28:05,492 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:28:05,537 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:28:05,537 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:28:05
+2025-11-07 13:28:05,537 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:28:37,908 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-07 13:28:41,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:28:41,138 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:28:41,187 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:28:41,187 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:28:41
+2025-11-07 13:28:41,187 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:28:43,918 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:28:43,918 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:28:43,954 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:28:43,954 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:28:43
+2025-11-07 13:28:43,954 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:28:43,964 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.117 in 0.000446s
+2025-11-07 13:28:44,335 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.117 in 0.149983s
+2025-11-07 13:28:53,951 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.117 in 0.105730s
+2025-11-07 13:29:06,154 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
+2025-11-07 13:29:09,348 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:29:09,348 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:29:09,388 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:29:09,388 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:29:09
+2025-11-07 13:29:09,388 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:29:12,192 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:29:12,192 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:29:12,232 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:29:12,233 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:29:12
+2025-11-07 13:29:12,233 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:29:14,939 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/logger.py:74 - Logger initialized. Daily rotation at midnight enabled.
+2025-11-07 13:29:14,939 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:18 - Logger setup completed during startup.
+2025-11-07 13:29:14,982 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:24 - -----------------------------------
+2025-11-07 13:29:14,982 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:25 - Database schema created at 07/11/2025, 07:29:14
+2025-11-07 13:29:14,982 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:26 - -----------------------------------
+2025-11-07 13:29:21,737 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.107 in 0.001075s
+2025-11-07 13:29:21,916 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /favicon.ico 404 from 192.168.0.107 in 0.003871s
+2025-11-07 13:29:27,164 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.107 in 0.001985s
+2025-11-07 13:29:27,553 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /favicon.ico 404 from 192.168.0.107 in 0.003005s
+2025-11-07 13:29:35,340 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.107 in 0.001740s
+2025-11-07 13:29:36,571 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.107 in 0.213372s
+2025-11-07 13:29:42,707 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET / 200 from 192.168.0.109 in 0.001244s
+2025-11-07 13:29:42,907 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /favicon.ico 404 from 192.168.0.109 in 0.002043s
+2025-11-07 13:30:08,576 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.109 in 0.001985s
+2025-11-07 13:30:09,716 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.109 in 0.002218s
+2025-11-07 13:30:27,989 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /docs 200 from 192.168.0.109 in 0.001123s
+2025-11-07 13:30:28,142 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /openapi.json 200 from 192.168.0.109 in 0.002702s
+2025-11-07 13:30:41,522 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /api/v1/adminall/players 404 from 192.168.0.100 in 0.002229s
+2025-11-07 13:30:41,834 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.109 in 0.085605s
+2025-11-07 13:30:42,143 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.107 in 0.025664s
+2025-11-07 13:30:52,872 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.107 in 0.024377s
+2025-11-07 13:30:59,842 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.109 in 0.023353s
+2025-11-07 13:31:11,610 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /api/v1/adminall/players 404 from 192.168.0.100 in 0.000444s
+2025-11-07 13:31:11,751 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.109 in 0.008332s
+2025-11-07 13:31:11,879 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.107 in 0.030356s
+2025-11-07 13:31:22,506 - my_fastapi_app - WARNING - /home/yasin/all_program/cpl/app/middleware.py:122 - GET /api/v1/adminall/players 404 from 192.168.0.100 in 0.001517s
+2025-11-07 13:31:22,801 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.107 in 0.015616s
+2025-11-07 13:31:23,074 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/middleware.py:124 - GET /api/v1/admin/all/players 200 from 192.168.0.109 in 0.016809s
+2025-11-07 13:31:56,371 - my_fastapi_app - INFO - /home/yasin/all_program/cpl/app/lifespan.py:40 - Database connections closed
